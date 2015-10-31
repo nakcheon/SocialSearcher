@@ -104,6 +104,7 @@
 
 -(void)viewDidLayoutSubviews
 {
+    // portrait -> scroll vertical
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
         DLog(@"viewDidLayoutSubviews::PORTRAIT");
         if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
@@ -113,6 +114,7 @@
             DLog(@"viewDidLayoutSubviews::DUPLICATE PORT");
         }
     }
+    // landscape -> scroll horizontal
     else {
         DLog(@"viewDidLayoutSubviews::LANDSCAPE");
         if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
@@ -123,21 +125,43 @@
         }
     }
     
-    [_collectionChannelList reloadData];
+    // iphone
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [_collectionChannelList reloadData];
+    }
+    // ipad
+    else {
+        CGSize sizeCell = [self collectionView:_collectionChannelList
+                                        layout:_collectionChannelListLayout
+                        sizeForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+        
+        [_collectionChannelListLayout setItemSize:sizeCell];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // ipad - 3 columns (portrait) or lines (landscape)
+    // iphone - 2 columns (portrait) or lines (landscape)
+    int numberOfCells = 2;
+    float totalMargin = 15;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        numberOfCells = 3;
+        totalMargin = 20;
+    }
+    
+    // portait - calculate with width
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
-        float width = (self.view.bounds.size.width - 15) / 2;
+        float width = (self.view.bounds.size.width - totalMargin) / numberOfCells;
         float height = (width / 16 * 9) * 1.5;
         return CGSizeMake(width, height);
     }
+    // landscate - calcuate with height
     else {
         float startY = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;
-        float height = (_collectionChannelList.bounds.size.height - startY - 15) / 2;
+        float height = (_collectionChannelList.bounds.size.height - startY - totalMargin) / numberOfCells;
         float width = (height / 3 * 2) / 9 * 16;
         return CGSizeMake(width, height);
     }
