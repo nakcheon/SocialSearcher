@@ -11,7 +11,6 @@
         <!--Recommanded Channels-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="NCMainGuidedChannelListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -108,12 +107,38 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Recommanded Channels" id="Nnj-SR-kEe"/>
+                    <navigationItem key="navigationItem" title="Recommanded Channels" id="Nnj-SR-kEe">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="MsJ-xI-Fl1">
+                            <view key="customView" contentMode="scaleToFill" id="V2t-g5-Ur9">
+                                <rect key="frame" x="553" y="8" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lK5-bC-OPP" userLabel="Search">
+                                        <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="icon_search">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="focused" image="icon_search_focus">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="fcj-pg-2WY" kind="show" identifier="ShowSearchView" id="KAv-VO-sSN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionChannelList" destination="ku6-P1-K0R" id="ku0-Iz-ldL"/>
                         <outlet property="collectionChannelListLayout" destination="J5G-O7-b3V" id="vz0-YC-NV3"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1201" y="462"/>
         </scene>
@@ -258,7 +283,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hM0-Ar-udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="462"/>
+            <point key="canvasLocation" x="2362" y="462"/>
+        </scene>
+        <!--Search Videos-->
+        <scene sceneID="UJh-eS-po5">
+            <objects>
+                <viewController title="Search Videos" id="fcj-pg-2WY" customClass="NCSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YvF-eE-ZRw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y2o-ly-vh0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2C5-FG-bL9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="vaV-gZ-qeQ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fcj-pg-2WY" id="Snq-5Z-lWU"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vaV-gZ-qeQ" secondAttribute="trailing" id="BR7-uG-aND"/>
+                            <constraint firstItem="vaV-gZ-qeQ" firstAttribute="leading" secondItem="2C5-FG-bL9" secondAttribute="leading" id="Jai-bV-hz1"/>
+                            <constraint firstItem="vaV-gZ-qeQ" firstAttribute="top" secondItem="YvF-eE-ZRw" secondAttribute="bottom" id="bb9-kK-iUA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="vaV-gZ-qeQ" id="fu1-IJ-FYv"/>
+                        <outlet property="videoSearchDisplayController" destination="nYe-P5-Trl" id="1HH-ph-A9M"/>
+                        <segue destination="nnP-2T-65w" kind="presentation" identifier="ShowSearchViewFromSearchView" modalPresentationStyle="overFullScreen" id="9wx-VL-411"/>
+                        <segue destination="NuX-c1-8aj" kind="show" identifier="ShowVideoListViewFromSearchView" id="dFD-gQ-Dle"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96n-jC-c3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="nYe-P5-Trl">
+                    <connections>
+                        <outlet property="delegate" destination="fcj-pg-2WY" id="7w7-s6-OAU"/>
+                        <outlet property="searchBar" destination="vaV-gZ-qeQ" id="NSB-Ja-wYt"/>
+                        <outlet property="searchContentsController" destination="fcj-pg-2WY" id="hfu-HB-794"/>
+                        <outlet property="searchResultsDataSource" destination="fcj-pg-2WY" id="QGB-be-r5x"/>
+                        <outlet property="searchResultsDelegate" destination="fcj-pg-2WY" id="Rw4-SS-m3G"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1201" y="1312"/>
         </scene>
         <!--Video Player View Controller-->
         <scene sceneID="tyU-MD-OZ1">
@@ -281,7 +355,7 @@
                                 <animations/>
                                 <state key="normal" image="icon_cross_white"/>
                                 <connections>
-                                    <segue destination="l6u-Z9-vPT" kind="unwind" identifier="ExitVideoPlayerViewController" unwindAction="selectorNCVideoPlayerViewControllerClosed:" id="QZN-qi-Qsx"/>
+                                    <action selector="selectorCloseButtonPressed:" destination="nnP-2T-65w" eventType="touchUpInside" id="Axa-hp-r4K"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVB-jK-bvl" userLabel="PlayerContainerView">
@@ -292,7 +366,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHU-xT-JYb">
-                                <rect key="frame" x="30.5" y="90" width="540" height="20.5"/>
+                                <rect key="frame" x="30" y="90" width="540" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -323,14 +397,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtI-AZ-Ujt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="l6u-Z9-vPT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2687" y="462"/>
+            <point key="canvasLocation" x="2362" y="1318"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tu0-OW-nam">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PgE-Xk-iqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rvF-Vc-VB7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jxk-Yc-FeV">
@@ -343,11 +415,18 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="k7M-Yf-sd7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PgE-Xk-iqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="389" y="462"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon_cross_white" width="32" height="32"/>
+        <image name="icon_search" width="32" height="32"/>
+        <image name="icon_search_focus" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="P9C-Gi-P4G"/>
+        <segue reference="WZG-eQ-N69"/>
+    </inferredMetricsTieBreakers>
 </document>

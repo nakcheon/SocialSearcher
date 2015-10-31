@@ -181,6 +181,9 @@
 -(BOOL)privateInitializeSetting
 {
     NSString* videoID = [_dicInfo valueForKeyPath:@"snippet.resourceId.videoId"];
+    if (!videoID) {
+        videoID = [_dicInfo valueForKeyPath:@"id.videoId"];
+    }
     _defaultVideoID = videoID;
     
     _strTitle = [_dicInfo valueForKeyPath:@"snippet.title"];
@@ -201,6 +204,12 @@
 {
     DLog(@"selectorReceivedPlaybackStartedNotification");
 }
+
+- (IBAction)selectorCloseButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark - YTPlayerViewDelegate
 

@@ -1,16 +1,17 @@
 //
-//  NCVideoListViewController.m
+//  NCSearchViewController.m
 //  SocialSearcher
 //
-//  Created by NakCheonJung on 10/31/15.
+//  Created by NakCheonJung on 11/1/15.
 //  Copyright © 2015 ncjung. All rights reserved.
 //
 
-#import "NCVideoListViewController.h"
-#import "NCVideoItemCell.h"
+#import "NCSearchViewController.h"
 #import "NCYoutubeDataManager.h"
+#import "NCSearchResultCell.h"
 #import "NCYoutubeDataContainer.h"
 #import "NCVideoPlayerViewController.h"
+#import "NCVideoListViewController.h"
 
 #pragma mark - enum Definition
 
@@ -38,46 +39,46 @@
  * Type Definition
  *****************************************************************************/
 
-@interface NCVideoListViewController() <UITableViewDataSource, UITableViewDelegate, NCYoutubeDataManagerDelegate>
+@interface NCSearchViewController() <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NCYoutubeDataManagerDelegate>
 {
-    NSString* _defaultPlayListID;
     NSArray* _arrayDataList;
     UIDeviceOrientation _deviceOrientation;
+    
+    // flags
+    BOOL _bIsSearchBarInitiallyFocused;
     
     // load more
     NCYoutubeDataManager* _youtubeDataManager;
     BOOL _bNextRequestSent;
     BOOL _bAllListLoaded;
 }
-@property (strong, nonatomic) IBOutlet UITableView *tableVideoList;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchDisplayController *videoSearchDisplayController;
 @end
 
-@interface NCVideoListViewController(CreateMethods)
--(BOOL)createTalbeListView;
+@interface NCSearchViewController(CreateMethods)
 @end
 
-@interface NCVideoListViewController(PrivateMethods)
--(BOOL)privateInitializeSetting;
--(BOOL)privateInitializeUI;
+@interface NCSearchViewController(PrivateMethods)
 @end
 
-@interface NCVideoListViewController(PrivateServerCommunications)
+@interface NCSearchViewController(PrivateServerCommunications)
 @end
 
-@interface NCVideoListViewController(selectors)
+@interface NCSearchViewController(selectors)
 @end
 
-@interface NCVideoListViewController(IBActions)
+@interface NCSearchViewController(IBActions)
 @end
 
-@interface NCVideoListViewController(ProcessMethod)
+@interface NCSearchViewController(ProcessMethod)
 @end
 
 
 /******************************************************************************************
  * Implementation
  ******************************************************************************************/
-@implementation NCVideoListViewController
+@implementation NCSearchViewController
 
 #pragma mark - class life cycle
 
@@ -85,11 +86,10 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"NCVideoListViewController::INIT");
+        NSLog(@"NCSearchViewController::INIT");
     }
     return self;
 }
-
 
 -(void)viewDidLoad
 {
@@ -103,17 +103,18 @@
 
 -(void)dealloc
 {
-    NSLog(@"NCVideoListViewController::DEALLOC");
+    NSLog(@"NCSearchViewController::DEALLOC");
 }
+
 #pragma mark - overrides
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     DLog(@"prepareForSegue");
     
-    if ([[segue identifier] isEqualToString:@"ShowVideoPlayer"]) {
+    if ([[segue identifier] isEqualToString:@"ShowSearchViewFromSearchView"]) {
         // fetch slected data
-        NSIndexPath* indexPathSelected = [_tableVideoList indexPathForSelectedRow];
+        NSIndexPath* indexPathSelected = [_videoSearchDisplayController.searchResultsTableView indexPathForSelectedRow];
         NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
         DLog(@"selected dic=%@", dicInfo);
         
@@ -121,123 +122,101 @@
         NCVideoPlayerViewController *vc = [segue destinationViewController];
         vc.dicInfo = dicInfo;
     }
+    else if ([[segue identifier] isEqualToString:@"ShowVideoListViewFromSearchView"]) {
+        // fetch slected data
+        NSIndexPath* indexPathSelected = [_videoSearchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
+        DLog(@"selected dic=%@", dicInfo);
+        
+        // set data
+        NCVideoListViewController *vc = [segue destinationViewController];
+        vc.dicInfo = dicInfo;
+    }
 }
 
 -(void)viewDidLayoutSubviews
 {
-    // check refresh
-    BOOL bNeedToRefresh = NO;
+    if (![_searchBar isFocused] && !_bIsSearchBarInitiallyFocused) {
+        _bIsSearchBarInitiallyFocused = YES;
+        [_searchBar becomeFirstResponder];
+    }
+    // table setting
     {
-        // portrait -> scroll vertical
-        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
-            DLog(@"viewDidLayoutSubviews::PORTRAIT");
-            if (UIDeviceOrientationIsLandscape(_deviceOrientation)) {
-                _deviceOrientation = [UIDevice currentDevice].orientation;
-                bNeedToRefresh = YES;
-            }
-            else {
-                DLog(@"viewDidLayoutSubviews::DUPLICATE PORT");
-            }
-        }
-        // landscape -> scroll horizontal
-        else {
-            DLog(@"viewDidLayoutSubviews::LANDSCAPE");
-            if (UIDeviceOrientationIsPortrait(_deviceOrientation)) {
-                _deviceOrientation = [UIDevice currentDevice].orientation;
-                bNeedToRefresh = YES;
-            }
-            else {
-                DLog(@"viewDidLayoutSubviews::DUPLICATE LAND");
-            }
-        }
+        [_videoSearchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"NCSearchResultCell" bundle:nil] forCellReuseIdentifier:@"NCSearchResultCell"];
+        _videoSearchDisplayController.searchResultsTableView.estimatedRowHeight = 100.0;
+        _videoSearchDisplayController.searchResultsTableView.rowHeight = UITableViewAutomaticDimension;
+        _videoSearchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
     }
-    
     // refresh
-    if (bNeedToRefresh) {
-        [_tableVideoList reloadData];
-    }
-}
-
-#pragma mark - create methods
-
--(BOOL)createTalbeListView
-{
-    _tableVideoList.estimatedRowHeight = 100.0;
-    _tableVideoList.rowHeight = UITableViewAutomaticDimension;
-    _tableVideoList.separatorColor = [UIColor clearColor];
-    return YES;
+    [_videoSearchDisplayController.searchResultsTableView reloadData];
 }
 
 #pragma mark - operations
 
 -(void)initialize
 {
-    [self privateInitializeSetting];
-    [self privateInitializeUI];
-}
-
-#pragma mark - private methods
-
--(BOOL)privateInitializeSetting
-{
     if (!_youtubeDataManager) {
         _youtubeDataManager = [[NCYoutubeDataManager alloc] init];
         _youtubeDataManager.delegate = self;
     }
-    // data came from recommended categories
-    _defaultPlayListID = _dicInfo[@"id"];
-    if (![_defaultPlayListID isKindOfClass:[NSString class]]) {
-        _defaultPlayListID = [_dicInfo valueForKeyPath:@"id.playlistId"];
-    }
-    if (![_defaultPlayListID isKindOfClass:[NSString class]]) {
-        _defaultPlayListID = [_dicInfo valueForKeyPath:@"id.channelId"];
-    }
-    
-    // reset data
-    NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    [dataContainer.dicYoutubeVideoListResult removeObjectForKey:_defaultPlayListID];
-    [dataContainer.dicYoutubeVideoListNextTokenInfo removeObjectForKey:_defaultPlayListID];
-    
-    // data came from search view controller
-    [_youtubeDataManager reqeustVideoListWithPlayListInfo:_defaultPlayListID];
-    
-    // datas
-    _deviceOrientation = [UIDevice currentDevice].orientation;
-    return YES;
-}
-
--(BOOL)privateInitializeUI
-{
-    self.title = [_dicInfo valueForKeyPath:@"snippet.title"];
-    [self createTalbeListView];
-    
-    return YES;
 }
 
 #pragma mark - NCYoutubeDataManagerDelegate
 
-// reqeustVideoListWithPlayListInfo
--(void)reqeustVideoListWithPlayListInfoFinished:(NSString*)playListID
+// reqeustSearch
+-(void)reqeustSearchFinished:(NSString*)query
 {
-    if (![_defaultPlayListID isEqualToString:playListID]) {
-        return;
-    }
-    
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubeVideoListResult objectForKey:_defaultPlayListID]];
-    [_tableVideoList reloadData];
+    _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubeSearchResult objectForKey:query]];
+    [_videoSearchDisplayController.searchResultsTableView reloadData];
 }
 
--(void)reqeustVideoListWithPlayListInfoNoData:(NSString*)playListID
+-(void)reqeustSearchNoData:(NSString*)query
 {
     
 }
 
--(void)reqeustVideoListWithPlayListInfoFailed:(NSString*)playListID
+-(void)reqeustSearchFailed:(NSString*)query
 {
     
 }
 
+#pragma mark - UISearchBarDelegate
+//@optional
+
+//- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar;                      // return NO to not become first responder
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar;                     // called when text starts editing
+//- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar;                        // return NO to not resign first responder
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar;                       // called when text ends editing
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText   // called when text changes (including clear)
+{
+    DLog(@"searchBar.text=%@, searchText=%@", searchBar.text, searchText);
+    if ([searchBar.text isEqualToString:@""] || [searchText isEqualToString:@""]) {
+        _arrayDataList = nil;
+    }
+}
+//- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text NS_AVAILABLE_IOS(3_0); // called before text changes
+//
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar                     // called when keyboard search button pressed
+{
+    DLog(@"SEARCH TEXT=%@", searchBar.text);
+
+    // reset saved data
+    NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
+    [dataContainer.dicYoutubeSearchResult removeObjectForKey:_searchBar.text];
+    [dataContainer.dicYoutubeSearchNextTokenInfo removeObjectForKey:_searchBar.text];
+    
+    // request
+    [_youtubeDataManager reqeustSearch:_searchBar.text];
+}
+//- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar;                   // called when bookmark button pressed
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar                     // called when cancel button pressed
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+//- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar NS_AVAILABLE_IOS(3_2); // called when search results button pressed
+//
+//- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope NS_AVAILABLE_IOS(3_0);
 
 #pragma mark - UITableViewDataSource
 //@required
@@ -252,14 +231,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* reuseIdentifier = @"NCVideoItemCell";
-    NCVideoItemCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    static NSString* reuseIdentifier = @"NCSearchResultCell";
+    NCSearchResultCell* cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     [cell prepareForReuse];
     
     // ui automation support
     cell.isAccessibilityElement = YES;
-    cell.accessibilityLabel = @"NCVideoItemCell";
+    cell.accessibilityLabel = @"NCSearchResultCell";
     
     // set data
     {
@@ -352,7 +331,20 @@
 //- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 //- (nullable NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0);
 //// Called after the user changes the selection.
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NCSearchResultCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (!cell.bIsList && !cell.bIsChannel) {
+        [self performSegueWithIdentifier:@"ShowSearchViewFromSearchView" sender:cell];
+    }
+    else if (cell.bIsList) {
+        [self performSegueWithIdentifier:@"ShowVideoListViewFromSearchView" sender:cell];
+    }
+//    else if (cell.bIsChannel) {
+//        [self performSegueWithIdentifier:@"ShowVideoListViewFromSearchView" sender:cell];
+//    }
+    
+}
 //- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0);
 //
 //// Editing

@@ -15,6 +15,8 @@
 @property (nonatomic, retain) NSMutableDictionary* dicYoutubeVideoListResult;
 @property (nonatomic, retain) NSMutableDictionary* dicYoutubeVideoListNextTokenInfo;
 @property (nonatomic, retain) NSMutableDictionary* dicYoutubeVideoDetailResult;
+@property (nonatomic, retain) NSMutableDictionary* dicYoutubeSearchResult;
+@property (nonatomic, retain) NSMutableDictionary* dicYoutubeSearchNextTokenInfo;
 
 +(NCYoutubeDataContainer*)sharedInstance;
 -(void)initialize;

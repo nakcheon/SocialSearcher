@@ -237,12 +237,12 @@
     [_youtubeDataManager reqeustPlayListWithChannelInfo:_defaultChannelID];
 }
 
--(void)reqeustguideCategoriesListNoData
+-(void)reqeustGuideCategoriesListNoData
 {
     
 }
 
--(void)reqeustguideCategoriesListFailed
+-(void)reqeustGuideCategoriesListFailed
 {
     
 }

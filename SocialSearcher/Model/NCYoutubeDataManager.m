@@ -518,4 +518,121 @@
     return YES;
 }
 
+-(BOOL)reqeustSearch:(NSString*)query
+{
+    __block AFHTTPRequestOperation* _reqeustSearch = nil;
+    if (_reqeustSearch) {
+        [_reqeustSearch cancel];
+    }
+    _reqeustSearch = nil;
+    
+    // check saved next token
+    NSString* strFullURL = nil;
+    NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
+    NSString* savedNextToken = [dataContainer.dicYoutubeSearchNextTokenInfo objectForKey:query];
+    if (savedNextToken) {
+        strFullURL = [NSString stringWithFormat:YOUTUBE_SEARCH_MORE_LIST, query, savedNextToken, DEFAULT_MAXRESULTS, GOOGLE_API_KEY];
+    }
+    else {
+        strFullURL = [NSString stringWithFormat:YOUTUBE_SEARCH, query, DEFAULT_MAXRESULTS, GOOGLE_API_KEY];
+    }
+    strFullURL = [strFullURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    // check loaded all list
+    {
+        NSArray* arrayOld = [dataContainer.dicYoutubeSearchResult objectForKey:query];
+        if (arrayOld.count > 0 && !savedNextToken) {
+            [_delegate reqeustVideoListWithPlayListInfoNoData:query];
+            return NO;
+        }
+    }
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:strFullURL]];
+    
+    _reqeustSearch = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    _reqeustSearch.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    // success block
+    void(^ completionBlock) (AFHTTPRequestOperation *operation, id responseObject);
+    NCYoutubeDataManager* __weak weakSelf = self;
+    completionBlock = ^(AFHTTPRequestOperation *operation, id responseObject) {
+        __strong NCYoutubeDataManager* strongSelf = weakSelf;
+        if (strongSelf.bIsFinish) {
+            return;
+        }
+        NSArray* arrayList = [responseObject objectForKey:@"items"];
+        NSString* nextToken = [responseObject objectForKey:@"nextPageToken"];
+        if ([nextToken isEqualToString:@""]) {
+            nextToken = nil;
+        }
+        
+        // success
+        if (arrayList.count > 0) {
+            DLog(@"Get reqeustSearch Success");
+            
+            if (!dataContainer.dicYoutubeSearchResult) {
+                dataContainer.dicYoutubeSearchResult = [[NSMutableDictionary alloc] init];
+            }
+            
+            // check saved next token
+            if (savedNextToken && ![savedNextToken isEqualToString:@""]) {
+                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:[dataContainer.dicYoutubeSearchResult objectForKey:query]];
+                [arrayOld addObjectsFromArray:arrayList];
+                [dataContainer.dicYoutubeSearchResult setObject:arrayOld forKey:query];
+            }
+            else {
+                [dataContainer.dicYoutubeSearchResult setObject:arrayList forKey:query];
+            }
+            
+            // save next token info
+            {
+                if (!dataContainer.dicYoutubeSearchNextTokenInfo) {
+                    dataContainer.dicYoutubeSearchNextTokenInfo = [[NSMutableDictionary alloc] init];
+                }
+                if (nextToken && ![nextToken isEqualToString:@""]) {
+                    [dataContainer.dicYoutubeSearchNextTokenInfo setObject:nextToken forKey:query];
+                }
+                else {
+                    [dataContainer.dicYoutubeSearchNextTokenInfo removeObjectForKey:query];
+                }
+            }
+            
+            [strongSelf.delegate reqeustSearchFinished:query];
+        }
+        else {
+            [strongSelf.delegate reqeustSearchNoData:query];
+        }
+        
+        [_reqeustSearch cancel];
+        _reqeustSearch = nil;
+    };
+    
+    // fail block
+    void(^ failBlock) (AFHTTPRequestOperation *operation, NSError *error);
+    failBlock = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        __strong NCYoutubeDataManager* strongSelf = weakSelf;
+        if (strongSelf.bIsFinish) {
+            return;
+        }
+        DLog(@"Get reqeustSearch FAIL: %@", error.localizedDescription);
+        
+        [strongSelf.delegate reqeustSearchFailed:query];
+        
+        [_reqeustSearch cancel];
+        _reqeustSearch = nil;
+    };
+    
+    [_reqeustSearch setCompletionBlockWithSuccess:completionBlock
+                                                             failure:failBlock];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong NCYoutubeDataManager* strongSelf = weakSelf;
+        if (strongSelf.bIsFinish) {
+            return;
+        }
+        [_reqeustSearch start];
+    });
+    return YES;
+}
+
 @end

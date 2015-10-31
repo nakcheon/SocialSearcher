@@ -35,4 +35,7 @@
 
 #define YOUTUBE_VIDEO_DETAIL @"https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=%@&key=%@"
 
+#define YOUTUBE_SEARCH @"https://www.googleapis.com/youtube/v3/search?part=snippet&q=%@&maxResults=%@&key=%@"
+#define YOUTUBE_SEARCH_MORE_LIST @"https://www.googleapis.com/youtube/v3/search?part=snippet&q=%@&maxResults=%@&pageToken=%@&key=%@"
+
 #endif /* RequestDefine_h */

@@ -31,6 +31,10 @@
 -(void)reqeustVideoDetailInfoNoData:(NSString*)videoID;
 -(void)reqeustVideoDetailInfoFailed:(NSString*)videoID;
 
+// reqeustSearch
+-(void)reqeustSearchFinished:(NSString*)query;
+-(void)reqeustSearchNoData:(NSString*)query;
+-(void)reqeustSearchFailed:(NSString*)query;
 @end
 
 @interface NCYoutubeDataManager : NSObject
@@ -43,5 +47,6 @@
 -(BOOL)reqeustPlayListWithChannelInfo:(NSString*)channelID;
 -(BOOL)reqeustVideoListWithPlayListInfo:(NSString*)playListID;
 -(BOOL)reqeustVideoDetailInfo:(NSString*)videoID;
+-(BOOL)reqeustSearch:(NSString*)query;
 
 @end
