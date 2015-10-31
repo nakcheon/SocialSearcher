@@ -12,9 +12,15 @@
 @optional
 
 // reqeustguideCategoriesList
--(void)reqeustguideCategoriesListFinished;
--(void)reqeustguideCategoriesListNoData;
--(void)reqeustguideCategoriesListFailed;
+-(void)reqeustGuideCategoriesListFinished;
+-(void)reqeustGuideCategoriesListNoData;
+-(void)reqeustGuideCategoriesListFailed;
+
+// reqeustPlayListWithChannelInfo
+-(void)reqeustPlayListWithChannelInfoFinished:(NSString*)channelID;
+-(void)reqeustPlayListWithChannelInfoNoData:(NSString*)channelID;
+-(void)reqeustPlayListWithChannelInfoFailed:(NSString*)channelID;
+
 @end
 
 @interface NCYoutubeDataManager : NSObject
@@ -24,5 +30,6 @@
 -(void)prepareForRelease;
 
 -(BOOL)reqeustGuideCategoriesList;
+-(BOOL)reqeustPlayListWithChannelInfo:(NSString*)channelID;
 
 @end

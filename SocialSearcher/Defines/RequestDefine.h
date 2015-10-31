@@ -27,5 +27,7 @@
 
 #define YOUTUBE_GUIDED_CHANNEL_LIST @"https://www.googleapis.com/youtube/v3/guideCategories?part=snippet&hl=%@&regionCode=%@&key=%@"
 
+#define YOUTUBE_PLAY_LIST @"https://www.googleapis.com/youtube/v3/playlists?part=snippet&hl=%@&channelId=%@&maxResults=%@&key=%@"
+#define YOUTUBE_PLAY_MORE_LIST @"https://www.googleapis.com/youtube/v3/playlists?part=snippet&hl=%@&channelId=%@&maxResults=%@&pageToken=%@&key=%@"
 
 #endif /* RequestDefine_h */

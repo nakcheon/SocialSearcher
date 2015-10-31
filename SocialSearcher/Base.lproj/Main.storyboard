@@ -23,7 +23,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ku6-P1-K0R">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.45859374999999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="J5G-O7-b3V">
                                     <size key="itemSize" width="367" height="320"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,15 +41,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kG7-LB-6Y0">
                                                     <rect key="frame" x="0.0" y="0.0" width="367" height="206.5"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.46004050925925927" green="1" blue="0.45859374999999991" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="kG7-LB-6Y0" secondAttribute="height" multiplier="16:9" id="dbn-r9-oNW"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCt-hv-oLA">
-                                                    <rect key="frame" x="18" y="211.5" width="331" height="93"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCt-hv-oLA">
+                                                    <rect key="frame" x="5" y="211.5" width="357" height="100"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.46004050925925927" green="0.34713541666666664" blue="0.45859374999999986" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="GCt-hv-oLA" secondAttribute="height" multiplier="16:4.5" id="FD3-BP-Pc0"/>
                                                         <constraint firstAttribute="width" secondItem="GCt-hv-oLA" secondAttribute="height" multiplier="16:4.5" id="GYz-05-EMN"/>
@@ -73,15 +71,19 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="kG7-LB-6Y0" firstAttribute="top" secondItem="x9F-y2-odg" secondAttribute="topMargin" constant="-8" id="3YY-rO-2wQ"/>
-                                            <constraint firstItem="GCt-hv-oLA" firstAttribute="leading" secondItem="x9F-y2-odg" secondAttribute="leadingMargin" constant="10" id="E8x-HR-PzO"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="GCt-hv-oLA" secondAttribute="trailing" constant="10" id="aLQ-8g-532"/>
+                                            <constraint firstItem="GCt-hv-oLA" firstAttribute="leading" secondItem="x9F-y2-odg" secondAttribute="leadingMargin" constant="-3" id="E8x-HR-PzO"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="GCt-hv-oLA" secondAttribute="trailing" constant="-3" id="aLQ-8g-532"/>
                                             <constraint firstItem="GCt-hv-oLA" firstAttribute="top" secondItem="kG7-LB-6Y0" secondAttribute="bottom" constant="5" id="juq-24-gAf"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="kG7-LB-6Y0" secondAttribute="trailing" constant="-8" id="wGd-9j-9MF"/>
                                             <constraint firstItem="kG7-LB-6Y0" firstAttribute="leading" secondItem="x9F-y2-odg" secondAttribute="leadingMargin" constant="-8" id="zHz-4d-LNP"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="GCt-hv-oLA" id="4hd-L1-1dT"/>
+                                            <outlet property="viewImage" destination="kG7-LB-6Y0" id="ZgT-fO-lDp"/>
+                                            <segue destination="NuX-c1-8aj" kind="show" id="P9C-Gi-P4G"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -107,6 +109,25 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1201" y="462"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="U79-Jo-AKW">
+            <objects>
+                <viewController id="NuX-c1-8aj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="28d-j1-drS"/>
+                        <viewControllerLayoutGuide type="bottom" id="QbU-dP-aI0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fhj-Wx-BA8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hM0-Ar-udb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tu0-OW-nam">

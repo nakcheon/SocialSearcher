@@ -10,6 +10,8 @@
 
 @interface NCYoutubeDataContainer : NSObject
 @property (nonatomic, retain) NSMutableDictionary* dicYoutubeGuideInfoResult;
+@property (nonatomic, retain) NSMutableDictionary* dicYoutubePlayListResult;
+@property (nonatomic, retain) NSMutableDictionary* dicYoutubePlayListNextTokenInfo;
 
 +(NCYoutubeDataContainer*)sharedInstance;
 -(void)initialize;

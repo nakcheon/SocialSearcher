@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface NCChannelItemCell : UICollectionViewCell
+@property (nonatomic, retain) NSDictionary* dicInfo;
+
+-(void)initialize;
+-(void)prepareForRelease;
 
 @end
