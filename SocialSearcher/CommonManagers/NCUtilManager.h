@@ -29,4 +29,8 @@
 +(UIImage*)imageCenterCropFitToWidth:(UIImage*)originalImage
                           insertRect:(CGRect)insertRect;
 
+#pragma mark - time
+
++(NSString*)convertAWSTime:(NSString*)time;
+
 @end

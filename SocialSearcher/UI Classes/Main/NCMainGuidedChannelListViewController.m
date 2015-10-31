@@ -11,6 +11,7 @@
 #import "NCYoutubeDataContainer.h"
 #import "NCYoutubeDataManager.h"
 #import <NSTimeZone-CountryCode/NSTimeZone+CountryCode.h>
+#import "NCVideoListViewController.h"
 
 #pragma mark - enum Definition
 
@@ -126,12 +127,18 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     DLog(@"prepareForSegue");
-
-    // fetch slected data
-    NSArray* arraySelected = [_collectionChannelList indexPathsForSelectedItems];
-    NSIndexPath* indexPathSelected = arraySelected.firstObject;
-    NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
-    DLog(@"selected dic=%@", dicInfo);
+    
+    if ([[segue identifier] isEqualToString:@"MoveToVideoList"]) {
+        // fetch slected data
+        NSArray* arraySelected = [_collectionChannelList indexPathsForSelectedItems];
+        NSIndexPath* indexPathSelected = arraySelected.firstObject;
+        NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
+        DLog(@"selected dic=%@", dicInfo);
+        
+        // set data
+        NCVideoListViewController *vc = [segue destinationViewController];
+        vc.dicInfo = dicInfo;
+    }
 }
 
 -(void)viewDidLayoutSubviews

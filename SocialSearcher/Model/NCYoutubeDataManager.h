@@ -21,6 +21,16 @@
 -(void)reqeustPlayListWithChannelInfoNoData:(NSString*)channelID;
 -(void)reqeustPlayListWithChannelInfoFailed:(NSString*)channelID;
 
+// reqeustVideoListWithPlayListInfo
+-(void)reqeustVideoListWithPlayListInfoFinished:(NSString*)playListID;
+-(void)reqeustVideoListWithPlayListInfoNoData:(NSString*)playListID;
+-(void)reqeustVideoListWithPlayListInfoFailed:(NSString*)playListID;
+
+// reqeustVideoDetailInfo
+-(void)reqeustVideoDetailInfoFinished:(NSString*)videoID;
+-(void)reqeustVideoDetailInfoNoData:(NSString*)videoID;
+-(void)reqeustVideoDetailInfoFailed:(NSString*)videoID;
+
 @end
 
 @interface NCYoutubeDataManager : NSObject
@@ -31,5 +41,7 @@
 
 -(BOOL)reqeustGuideCategoriesList;
 -(BOOL)reqeustPlayListWithChannelInfo:(NSString*)channelID;
+-(BOOL)reqeustVideoListWithPlayListInfo:(NSString*)playListID;
+-(BOOL)reqeustVideoDetailInfo:(NSString*)videoID;
 
 @end

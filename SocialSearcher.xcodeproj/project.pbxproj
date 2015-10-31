@@ -34,6 +34,12 @@
 		1B657A3B1BE4CD4C00758205 /* NCURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A3A1BE4CD4C00758205 /* NCURLManager.m */; };
 		1B657A3C1BE4CD4C00758205 /* NCURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A3A1BE4CD4C00758205 /* NCURLManager.m */; };
 		1B657A3D1BE4CD4C00758205 /* NCURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A3A1BE4CD4C00758205 /* NCURLManager.m */; };
+		1B657A411BE4E4F900758205 /* NCVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A401BE4E4F900758205 /* NCVideoListViewController.m */; };
+		1B657A421BE4E4F900758205 /* NCVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A401BE4E4F900758205 /* NCVideoListViewController.m */; };
+		1B657A431BE4E4F900758205 /* NCVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A401BE4E4F900758205 /* NCVideoListViewController.m */; };
+		1B657A461BE4E9B900758205 /* NCVideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A451BE4E9B900758205 /* NCVideoItemCell.m */; };
+		1B657A471BE4E9B900758205 /* NCVideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A451BE4E9B900758205 /* NCVideoItemCell.m */; };
+		1B657A481BE4E9B900758205 /* NCVideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A451BE4E9B900758205 /* NCVideoItemCell.m */; };
 		BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B1A55779C04BFC31903557 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +94,10 @@
 		1B657A351BE4CD3000758205 /* NCImageCachingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCImageCachingManager.m; sourceTree = "<group>"; };
 		1B657A391BE4CD4C00758205 /* NCURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCURLManager.h; sourceTree = "<group>"; };
 		1B657A3A1BE4CD4C00758205 /* NCURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCURLManager.m; sourceTree = "<group>"; };
+		1B657A3F1BE4E4F900758205 /* NCVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCVideoListViewController.h; sourceTree = "<group>"; };
+		1B657A401BE4E4F900758205 /* NCVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCVideoListViewController.m; sourceTree = "<group>"; };
+		1B657A441BE4E9B900758205 /* NCVideoItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCVideoItemCell.h; sourceTree = "<group>"; };
+		1B657A451BE4E9B900758205 /* NCVideoItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCVideoItemCell.m; sourceTree = "<group>"; };
 		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +221,7 @@
 			children = (
 				1B657A291BE4CC9900758205 /* Common */,
 				1B657A1F1BE471E900758205 /* Main */,
+				1B657A3E1BE4E4E600758205 /* Video List */,
 			);
 			path = "UI Classes";
 			sourceTree = "<group>";
@@ -246,6 +257,17 @@
 				1B657A2B1BE4CCA800758205 /* NCUIConstantsManager.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		1B657A3E1BE4E4E600758205 /* Video List */ = {
+			isa = PBXGroup;
+			children = (
+				1B657A3F1BE4E4F900758205 /* NCVideoListViewController.h */,
+				1B657A401BE4E4F900758205 /* NCVideoListViewController.m */,
+				1B657A441BE4E9B900758205 /* NCVideoItemCell.h */,
+				1B657A451BE4E9B900758205 /* NCVideoItemCell.m */,
+			);
+			path = "Video List";
 			sourceTree = "<group>";
 		};
 		4AAAAD64430E0570F69E9A6D /* Pods */ = {
@@ -453,9 +475,11 @@
 				1B657A311BE4CCCF00758205 /* NCUtilManager.m in Sources */,
 				1B022DA71BE34771004979ED /* AppDelegate.m in Sources */,
 				1B657A3B1BE4CD4C00758205 /* NCURLManager.m in Sources */,
+				1B657A411BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
 				1B657A361BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
 				1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */,
 				1B022DA41BE34771004979ED /* main.m in Sources */,
+				1B657A461BE4E9B900758205 /* NCVideoItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,9 +488,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B657A371BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
+				1B657A421BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
 				1B657A2D1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */,
 				1B657A3C1BE4CD4C00758205 /* NCURLManager.m in Sources */,
 				1B657A1D1BE453E300758205 /* NCYoutubeDataContainer.m in Sources */,
+				1B657A471BE4E9B900758205 /* NCVideoItemCell.m in Sources */,
 				1B657A1C1BE453DF00758205 /* NCYoutubeDataManager.m in Sources */,
 				1B657A1B1BE453B700758205 /* NCYoutubeDataManagerTests.m in Sources */,
 				1B657A321BE4CCCF00758205 /* NCUtilManager.m in Sources */,
@@ -478,9 +504,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B657A381BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
+				1B657A431BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
 				1B657A2E1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */,
 				1B657A3D1BE4CD4C00758205 /* NCURLManager.m in Sources */,
 				1B657A231BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */,
+				1B657A481BE4E9B900758205 /* NCVideoItemCell.m in Sources */,
 				1B657A271BE49AC900758205 /* NCChannelItemCell.m in Sources */,
 				1B022DC81BE34771004979ED /* SocialSearcherUITests.m in Sources */,
 				1B657A331BE4CCCF00758205 /* NCUtilManager.m in Sources */,

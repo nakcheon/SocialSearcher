@@ -255,7 +255,7 @@
     // fail block
     void(^ failBlock) (AFHTTPRequestOperation *operation, NSError *error);
     failBlock = ^(AFHTTPRequestOperation *operation, NSError *error) {
-        DLog(@"requestProfileImage ERROR: %d", (int)error.code);
+        DLog(@"privateRequestThumbnailImage ERROR: %d", (int)error.code);
         if ([error.localizedDescription isEqualToString:@"Request failed: forbidden (403)"]) {
             DLog(@"NCChannelItemCell::thumbnail image is not exits on server");
             return;

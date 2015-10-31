@@ -30,4 +30,9 @@
 #define YOUTUBE_PLAY_LIST @"https://www.googleapis.com/youtube/v3/playlists?part=snippet&hl=%@&channelId=%@&maxResults=%@&key=%@"
 #define YOUTUBE_PLAY_MORE_LIST @"https://www.googleapis.com/youtube/v3/playlists?part=snippet&hl=%@&channelId=%@&maxResults=%@&pageToken=%@&key=%@"
 
+#define YOUTUBE_VIDEO_LIST @"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=%@&maxResults=%@&key=%@"
+#define YOUTUBE_VIDEO_MORE_LIST @"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=%@&maxResults=%@&pageToken=%@&key=%@"
+
+#define YOUTUBE_VIDEO_DETAIL @"https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=%@&key=%@"
+
 #endif /* RequestDefine_h */
