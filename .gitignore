@@ -1,0 +1,21 @@
+
+# =========================
+# Tools
+# =========================
+
+# xCode
+# =========================
+
+SocialSearcher.xcworkspace/xcuserdata
+SocialSearcher.xcodeproj/xcuserdata
+Pods/Pods.xcodeproj/xcuserdata
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+

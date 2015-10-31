@@ -13,8 +13,13 @@
 		1B022DAD1BE34771004979ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAB1BE34771004979ED /* Main.storyboard */; };
 		1B022DAF1BE34771004979ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAE1BE34771004979ED /* Assets.xcassets */; };
 		1B022DB21BE34771004979ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DB01BE34771004979ED /* LaunchScreen.storyboard */; };
-		1B022DBD1BE34771004979ED /* SocialSearcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DBC1BE34771004979ED /* SocialSearcherTests.m */; };
 		1B022DC81BE34771004979ED /* SocialSearcherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DC71BE34771004979ED /* SocialSearcherUITests.m */; };
+		1B022DD81BE34BF6004979ED /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
+		1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */; };
+		1B657A1B1BE453B700758205 /* NCYoutubeDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */; };
+		1B657A1C1BE453DF00758205 /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
+		1B657A1D1BE453E300758205 /* NCYoutubeDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */; };
+		BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B1A55779C04BFC31903557 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +51,21 @@
 		1B022DB11BE34771004979ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B022DB31BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B022DB81BE34771004979ED /* SocialSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B022DBC1BE34771004979ED /* SocialSearcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialSearcherTests.m; sourceTree = "<group>"; };
 		1B022DBE1BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B022DC31BE34771004979ED /* SocialSearcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialSearcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B022DC71BE34771004979ED /* SocialSearcherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialSearcherUITests.m; sourceTree = "<group>"; };
 		1B022DC91BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B022DD61BE34BF6004979ED /* NCYoutubeDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCYoutubeDataManager.h; sourceTree = "<group>"; };
+		1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataManager.m; sourceTree = "<group>"; };
+		1B2260131BE3741700CBEBBD /* ProgrammingDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgrammingDefine.h; sourceTree = "<group>"; };
+		1B2260151BE3867E00CBEBBD /* Application-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Prefix.pch"; sourceTree = "<group>"; };
+		1B2260181BE3C0AD00CBEBBD /* RequestDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestDefine.h; sourceTree = "<group>"; };
+		1B657A171BE3C1B400758205 /* NCYoutubeDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCYoutubeDataContainer.h; sourceTree = "<group>"; };
+		1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataContainer.m; sourceTree = "<group>"; };
+		1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataManagerTests.m; sourceTree = "<group>"; };
+		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +101,8 @@
 				1B022DBB1BE34771004979ED /* SocialSearcherTests */,
 				1B022DC61BE34771004979ED /* SocialSearcherUITests */,
 				1B022DA01BE34771004979ED /* Products */,
+				4AAAAD64430E0570F69E9A6D /* Pods */,
+				9D443D561F42CD93AE3C1F43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +119,8 @@
 		1B022DA11BE34771004979ED /* SocialSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				1B2260121BE3740700CBEBBD /* Defines */,
+				1B022DD51BE34BE9004979ED /* Model */,
 				1B022DA51BE34771004979ED /* AppDelegate.h */,
 				1B022DA61BE34771004979ED /* AppDelegate.m */,
 				1B022DA81BE34771004979ED /* ViewController.h */,
@@ -117,6 +137,7 @@
 		1B022DA21BE34771004979ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B2260151BE3867E00CBEBBD /* Application-Prefix.pch */,
 				1B022DA31BE34771004979ED /* main.m */,
 			);
 			name = "Supporting Files";
@@ -125,7 +146,7 @@
 		1B022DBB1BE34771004979ED /* SocialSearcherTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B022DBC1BE34771004979ED /* SocialSearcherTests.m */,
+				1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */,
 				1B022DBE1BE34771004979ED /* Info.plist */,
 			);
 			path = SocialSearcherTests;
@@ -140,6 +161,43 @@
 			path = SocialSearcherUITests;
 			sourceTree = "<group>";
 		};
+		1B022DD51BE34BE9004979ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B022DD61BE34BF6004979ED /* NCYoutubeDataManager.h */,
+				1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */,
+				1B657A171BE3C1B400758205 /* NCYoutubeDataContainer.h */,
+				1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B2260121BE3740700CBEBBD /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				1B2260131BE3741700CBEBBD /* ProgrammingDefine.h */,
+				1B2260181BE3C0AD00CBEBBD /* RequestDefine.h */,
+			);
+			path = Defines;
+			sourceTree = "<group>";
+		};
+		4AAAAD64430E0570F69E9A6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */,
+				22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D443D561F42CD93AE3C1F43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47B1A55779C04BFC31903557 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B022DCC1BE34771004979ED /* Build configuration list for PBXNativeTarget "SocialSearcher" */;
 			buildPhases = (
+				B6213DDF5F04619ACF4221AB /* Check Pods Manifest.lock */,
 				1B022D9B1BE34771004979ED /* Sources */,
 				1B022D9C1BE34771004979ED /* Frameworks */,
 				1B022D9D1BE34771004979ED /* Resources */,
+				258C0D6370669925C07D7351 /* Embed Pods Frameworks */,
+				B7A082FA6E05E63E79E45C30 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,13 +326,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		258C0D6370669925C07D7351 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6213DDF5F04619ACF4221AB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B7A082FA6E05E63E79E45C30 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B022D9B1BE34771004979ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B022DD81BE34BF6004979ED /* NCYoutubeDataManager.m in Sources */,
 				1B022DAA1BE34771004979ED /* ViewController.m in Sources */,
 				1B022DA71BE34771004979ED /* AppDelegate.m in Sources */,
+				1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */,
 				1B022DA41BE34771004979ED /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +391,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B022DBD1BE34771004979ED /* SocialSearcherTests.m in Sources */,
+				1B657A1D1BE453E300758205 /* NCYoutubeDataContainer.m in Sources */,
+				1B657A1C1BE453DF00758205 /* NCYoutubeDataManager.m in Sources */,
+				1B657A1B1BE453B700758205 /* NCYoutubeDataManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,8 +524,11 @@
 		};
 		1B022DCD1BE34771004979ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
 				INFOPLIST_FILE = SocialSearcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
@@ -422,8 +538,11 @@
 		};
 		1B022DCE1BE34771004979ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
 				INFOPLIST_FILE = SocialSearcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
@@ -435,8 +554,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/NSTimeZone-CountryCode\"",
+					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"",
+				);
 				INFOPLIST_FILE = SocialSearcherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/NSTimeZone-CountryCode\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"",
+				);
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialSearcher.app/SocialSearcher";
@@ -447,8 +590,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "COCOAPODS=1";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/NSTimeZone-CountryCode\"",
+					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"",
+				);
 				INFOPLIST_FILE = SocialSearcherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/NSTimeZone-CountryCode\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"",
+				);
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialSearcher.app/SocialSearcher";
@@ -458,6 +622,7 @@
 		1B022DD31BE34771004979ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
 				INFOPLIST_FILE = SocialSearcherUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherUITests;
@@ -470,6 +635,7 @@
 		1B022DD41BE34771004979ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
 				INFOPLIST_FILE = SocialSearcherUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherUITests;
@@ -498,6 +664,7 @@
 				1B022DCE1BE34771004979ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B022DCF1BE34771004979ED /* Build configuration list for PBXNativeTarget "SocialSearcherTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +673,7 @@
 				1B022DD11BE34771004979ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1B022DD21BE34771004979ED /* Build configuration list for PBXNativeTarget "SocialSearcherUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +682,7 @@
 				1B022DD41BE34771004979ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
