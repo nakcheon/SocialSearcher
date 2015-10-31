@@ -57,6 +57,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lblDate;
 @property (strong, nonatomic) IBOutlet UILabel *lblDescription;
+@property (strong, nonatomic) IBOutlet UIView *viewSeperator;
 // datas
 @property (strong, nonatomic) AFHTTPRequestOperation* requestThumbnailImage;
 @property (assign, nonatomic) int nRetryCount;
@@ -70,6 +71,7 @@
 -(BOOL)createThumbnailView;
 -(BOOL)createLabels;
 -(BOOL)createDurationInfoView;
+-(BOOL)createSeperator;
 @end
 
 @interface NCVideoItemCell(PrivateMethods)
@@ -136,6 +138,8 @@
     _lblDate.text = @"";
     _lblDescription.text = @"";
     _viewImage.hidden = NO;
+    _bIsLastItem = NO;
+    _viewSeperator.hidden = NO;
     
     // duration
     {
@@ -150,10 +154,24 @@
     }
 }
 
+#pragma mark - overrides
+
+-(void)layoutSubviews
+{
+    if (_strFormattedDuration && ![_strFormattedDuration isEqualToString:@""]) {
+        [self createDurationInfoView];
+    }
+}
+
 #pragma mark - create methods
 
 -(BOOL)createThumbnailView
 {
+    if (!_strThumbnailUrl || [_strThumbnailUrl isEqualToString:@""]) {
+        _viewImage.hidden = YES;
+        return NO;
+    }
+    
     // search saved image
     {
         NSString* strKey = [NCURLManager rawImageDataKey:_strThumbnailUrl];
@@ -172,7 +190,6 @@
         }
     }
     return YES;
-    return YES;
 }
 
 -(BOOL)createLabels
@@ -184,57 +201,67 @@
     return YES;
 }
 
+-(BOOL)createSeperator
+{
+    if (_bIsLastItem) {
+        _viewSeperator.hidden = YES;
+    }
+    return YES;
+}
+
 -(BOOL)createDurationInfoView
 {
-//    if (!_viewDurationBackgound) {
-//        _viewDurationBackgound = [[UIView alloc] init];
-//        _viewDurationBackgound.backgroundColor = [UIColor blackColor];
-//        
-//        [self addSubview:_viewDurationBackgound];
-//    }
-//    
-//    // icon
-//    {
-//        if (!_viewDurationIcon) {
-//            _viewDurationIcon = [[UIImageView alloc] init];
-//            [_viewDurationBackgound addSubview:_viewDurationIcon];
-//        }
-//        _viewDurationIcon.backgroundColor = [UIColor clearColor];
-//        _viewDurationIcon.image = [NCUtilManager pngImageWithMainBundle:@"icon_play"];;
-//    }
-//    
-//    // duration
-//    {
-//        if (!_lblDuration) {
-//            _lblDuration = [[UILabel alloc] init];
-//            _lblDuration.font = [NCUtilManager getAppleNeoSemiBold:10];
-//            _lblDuration.textColor = [UIColor whiteColor];
-//            _lblDuration.numberOfLines = 1;
-//            [_viewDurationBackgound addSubview:_lblDuration];
-//        }
-//        _lblDuration.text = _strFormattedDuration;
-//        _lblDuration.frame = CGRectMake(0,
-//                                        0,
-//                                        100,
-//                                        100);
-//        [_lblDuration sizeToFit];
-//    }
-//    
-//    _viewDurationIcon.frame = CGRectMake(0,
-//                                         0,
-//                                         _lblDuration.frame.size.height + 6,
-//                                         _lblDuration.frame.size.height + 6);
-//    _lblDuration.frame = CGRectMake(_viewDurationIcon.frame.origin.x + _viewDurationIcon.frame.size.width,
-//                                    4,
-//                                    _lblDuration.frame.size.width,
-//                                    _lblDuration.frame.size.height);
-//    _viewDurationBackgound.frame = CGRectMake(_viewImage.frame.size.width - (_lblDuration.frame.origin.x + _lblDuration.frame.size.width + 3) - 5,
-//                                              _viewImage.frame.size.height - (_lblDuration.frame.origin.y + _lblDuration.frame.size.height + 3) - 5,
-//                                              _lblDuration.frame.origin.x + _lblDuration.frame.size.width + 3,
-//                                              _lblDuration.frame.origin.y + _lblDuration.frame.size.height + 3);
-//    
-//    _viewDurationBackgound.layer.cornerRadius = 3.0;
-//    _viewDurationBackgound.layer.masksToBounds = YES;
+    if (!_viewDurationBackgound) {
+        _viewDurationBackgound = [[UIView alloc] init];
+        _viewDurationBackgound.backgroundColor = [UIColor blackColor];
+        
+        [self addSubview:_viewDurationBackgound];
+    }
+    
+    // icon
+    {
+        if (!_viewDurationIcon) {
+            _viewDurationIcon = [[UIImageView alloc] init];
+            [_viewDurationBackgound addSubview:_viewDurationIcon];
+        }
+        _viewDurationIcon.backgroundColor = [UIColor clearColor];
+        _viewDurationIcon.image = [NCUtilManager pngImageWithMainBundle:@"icon_play"];;
+    }
+    
+    // duration
+    {
+        if (!_lblDuration) {
+            _lblDuration = [[UILabel alloc] init];
+            _lblDuration.font = [NCUtilManager getAppleNeoSemiBold:10];
+            _lblDuration.textColor = [UIColor whiteColor];
+            _lblDuration.numberOfLines = 1;
+            [_viewDurationBackgound addSubview:_lblDuration];
+        }
+        _lblDuration.text = _strFormattedDuration;
+        _lblDuration.frame = CGRectMake(0,
+                                        0,
+                                        100,
+                                        100);
+        [_lblDuration sizeToFit];
+    }
+    
+    _viewDurationIcon.frame = CGRectMake(0,
+                                         0,
+                                         _lblDuration.frame.size.height + 6,
+                                         _lblDuration.frame.size.height + 6);
+    _lblDuration.frame = CGRectMake(_viewDurationIcon.frame.origin.x + _viewDurationIcon.frame.size.width,
+                                    4,
+                                    _lblDuration.frame.size.width,
+                                    _lblDuration.frame.size.height);
+    _viewDurationBackgound.frame = CGRectMake(_viewImage.frame.origin.x + _viewImage.frame.size.width - (_lblDuration.frame.origin.x + _lblDuration.frame.size.width + 0) - 0,
+                                              _viewImage.frame.origin.y + _viewImage.frame.size.height - (_lblDuration.frame.origin.y + _lblDuration.frame.size.height + 0) - 0,
+                                              _lblDuration.frame.origin.x + _lblDuration.frame.size.width + 3,
+                                              _lblDuration.frame.origin.y + _lblDuration.frame.size.height + 3);
+    
+    _viewDurationBackgound.layer.cornerRadius = 3.0;
+    _viewDurationBackgound.layer.masksToBounds = YES;
+    _viewDurationBackgound.layer.borderWidth = 1.0;
+    _viewDurationBackgound.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     return YES;
 }
@@ -293,6 +320,7 @@
 {
     [self createThumbnailView];
     [self createLabels];
+    [self createSeperator];
     return YES;
 }
 

@@ -10,6 +10,7 @@
 
 @interface NCVideoItemCell : UITableViewCell
 @property (nonatomic, retain) NSDictionary* dicInfo;
+@property (nonatomic, assign) BOOL bIsLastItem;
 
 -(void)initialize;
 -(void)prepareForRelease;

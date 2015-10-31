@@ -148,8 +148,7 @@
 
 +(UIImage*)pngImageWithMainBundle:(NSString*)file
 {
-    NSString* path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    UIImage* image = [UIImage imageNamed:file];
     return image;
 }
 
@@ -246,16 +245,16 @@
             }
             else {
                 // 6 ~ 59 minuts
-                return [NSString stringWithFormat: @"%li %@", min, NSLocalizedString(@"mins", @"")];
+                return [NSString stringWithFormat: @"%li %@", (long)min, NSLocalizedString(@"mins", @"")];
             }
         }
         else {
             // under 23 hours
             if (hour <= 1) {
-                return [NSString stringWithFormat: @"%li %@", hour, NSLocalizedString(@"hr", @"")];
+                return [NSString stringWithFormat: @"%li %@", (long)hour, NSLocalizedString(@"hr", @"")];
             }
             else {
-                return [NSString stringWithFormat: @"%li %@", hour, NSLocalizedString(@"hrs", @"")];
+                return [NSString stringWithFormat: @"%li %@", (long)hour, NSLocalizedString(@"hrs", @"")];
             }
         }
     }

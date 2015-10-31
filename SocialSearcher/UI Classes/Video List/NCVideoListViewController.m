@@ -194,6 +194,9 @@
     {
         NSDictionary* dicUserInfo = [NSDictionary dictionaryWithDictionary:_arrayDataList[indexPath.row]];
         cell.dicInfo = dicUserInfo;
+        if (indexPath.row + 1 >= _arrayDataList.count) {
+            cell.bIsLastItem = YES;
+        }
         [cell initialize];
     }
     
