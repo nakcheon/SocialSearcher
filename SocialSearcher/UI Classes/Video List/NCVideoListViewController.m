@@ -10,6 +10,7 @@
 #import "NCVideoItemCell.h"
 #import "NCYoutubeDataManager.h"
 #import "NCYoutubeDataContainer.h"
+#import "NCVideoPlayerViewController.h"
 
 #pragma mark - enum Definition
 
@@ -41,6 +42,7 @@
 {
     NSString* _defaultPlayListID;
     NSArray* _arrayDataList;
+    UIDeviceOrientation _deviceOrientation;
     
     // load more
     NCYoutubeDataManager* _youtubeDataManager;
@@ -63,6 +65,7 @@
 @end
 
 @interface NCVideoListViewController(selectors)
+- (IBAction)selectorNCVideoPlayerViewControllerClosed:(UIStoryboardSegue *)segue;
 @end
 
 @interface NCVideoListViewController(IBActions)
@@ -103,6 +106,58 @@
 {
     NSLog(@"NCVideoListViewController::DEALLOC");
 }
+#pragma mark - overrides
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DLog(@"prepareForSegue");
+    
+    if ([[segue identifier] isEqualToString:@"ShowVideoPlayer"]) {
+        // fetch slected data
+        NSIndexPath* indexPathSelected = [_tableVideoList indexPathForSelectedRow];
+        NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
+        DLog(@"selected dic=%@", dicInfo);
+        
+        // set data
+        NCVideoPlayerViewController *vc = [segue destinationViewController];
+        vc.dicInfo = dicInfo;
+    }
+}
+
+-(void)viewDidLayoutSubviews
+{
+    // scroll direction
+    BOOL bNeedToRefresh = NO;
+    {
+        // portrait -> scroll vertical
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+            DLog(@"viewDidLayoutSubviews::PORTRAIT");
+            if (UIDeviceOrientationIsLandscape(_deviceOrientation)) {
+                _deviceOrientation = [UIDevice currentDevice].orientation;
+                bNeedToRefresh = YES;
+            }
+            else {
+                DLog(@"viewDidLayoutSubviews::DUPLICATE PORT");
+            }
+        }
+        // landscape -> scroll horizontal
+        else {
+            DLog(@"viewDidLayoutSubviews::LANDSCAPE");
+            if (UIDeviceOrientationIsPortrait(_deviceOrientation)) {
+                _deviceOrientation = [UIDevice currentDevice].orientation;
+                bNeedToRefresh = YES;
+            }
+            else {
+                DLog(@"viewDidLayoutSubviews::DUPLICATE LAND");
+            }
+        }
+    }
+    
+    // refresh
+    if (bNeedToRefresh) {
+        [_tableVideoList reloadData];
+    }
+}
 
 #pragma mark - create methods
 
@@ -132,6 +187,9 @@
     }
     _defaultPlayListID = _dicInfo[@"id"];
     [_youtubeDataManager reqeustVideoListWithPlayListInfo:_defaultPlayListID];
+    
+    // datas
+    _deviceOrientation = [UIDevice currentDevice].orientation;
     return YES;
 }
 
@@ -321,5 +379,12 @@
 //- (void)tableView:(UITableView *)tableView didUpdateFocusInContext:(UITableViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator NS_AVAILABLE_IOS(9_0);
 //- (nullable NSIndexPath *)indexPathForPreferredFocusedViewInTableView:(UITableView *)tableView NS_AVAILABLE_IOS(9_0);
 //#endif
+
+#pragma mark - selectors
+
+- (IBAction)selectorNCVideoPlayerViewControllerClosed:(UIStoryboardSegue *)segue
+{
+    
+}
 
 @end

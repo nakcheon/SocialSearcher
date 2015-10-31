@@ -181,7 +181,13 @@
         // has saved image
         if (imageSaved) {
             _viewImage.image = [NCUtilManager imageCenterCropFitToWidth:imageSaved
-                                                             insertRect:_viewImage.frame];
+                                                             insertRect:_viewImage.frame];;
+            NCVideoItemCell* __weak weakSelf = self;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                __strong NCVideoItemCell* strongSelf = weakSelf;
+                strongSelf.viewImage.image = [NCUtilManager imageCenterCropFitToWidth:imageSaved
+                                                                 insertRect:strongSelf.viewImage.frame];
+            });
         }
         // request
         else {
@@ -211,6 +217,7 @@
 
 -(BOOL)createDurationInfoView
 {
+    // custom view
     if (!_viewDurationBackgound) {
         _viewDurationBackgound = [[UIView alloc] init];
         _viewDurationBackgound.backgroundColor = [UIColor blackColor];
