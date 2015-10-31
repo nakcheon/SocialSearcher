@@ -140,7 +140,7 @@
     _reqeustGuideCategoriesList = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     _reqeustGuideCategoriesList.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    // 성공 블럭
+    // success block
     void(^ completionBlock) (AFHTTPRequestOperation *operation, id responseObject);
     NCYoutubeDataManager* __weak weakSelf = self;
     completionBlock = ^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -150,7 +150,7 @@
         }
         NSArray* arrayList = [responseObject objectForKey:@"items"];
         
-        // 성공
+        // success
         if (arrayList.count > 0) {
             DLog(@"Get reqeustGuideCategoriesList Success");
             
@@ -170,7 +170,7 @@
         strongSelf = nil;
     };
     
-    // 실패 블럭
+    // fail block
     void(^ failBlock) (AFHTTPRequestOperation *operation, NSError *error);
     failBlock = ^(AFHTTPRequestOperation *operation, NSError *error) {
         if (_bIsFinish) {

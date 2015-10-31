@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B022DA41BE34771004979ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DA31BE34771004979ED /* main.m */; };
 		1B022DA71BE34771004979ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DA61BE34771004979ED /* AppDelegate.m */; };
-		1B022DAA1BE34771004979ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DA91BE34771004979ED /* ViewController.m */; };
 		1B022DAD1BE34771004979ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAB1BE34771004979ED /* Main.storyboard */; };
 		1B022DAF1BE34771004979ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAE1BE34771004979ED /* Assets.xcassets */; };
 		1B022DB21BE34771004979ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DB01BE34771004979ED /* LaunchScreen.storyboard */; };
@@ -19,6 +18,10 @@
 		1B657A1B1BE453B700758205 /* NCYoutubeDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */; };
 		1B657A1C1BE453DF00758205 /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
 		1B657A1D1BE453E300758205 /* NCYoutubeDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */; };
+		1B657A221BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A211BE4720900758205 /* NCMainGuidedChannelListViewController.m */; };
+		1B657A231BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A211BE4720900758205 /* NCMainGuidedChannelListViewController.m */; };
+		1B657A261BE49AC900758205 /* NCChannelItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A251BE49AC900758205 /* NCChannelItemCell.m */; };
+		1B657A271BE49AC900758205 /* NCChannelItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A251BE49AC900758205 /* NCChannelItemCell.m */; };
 		BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B1A55779C04BFC31903557 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +47,6 @@
 		1B022DA31BE34771004979ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B022DA51BE34771004979ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1B022DA61BE34771004979ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1B022DA81BE34771004979ED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1B022DA91BE34771004979ED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1B022DAC1BE34771004979ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B022DAE1BE34771004979ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B022DB11BE34771004979ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +64,10 @@
 		1B657A171BE3C1B400758205 /* NCYoutubeDataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCYoutubeDataContainer.h; sourceTree = "<group>"; };
 		1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataContainer.m; sourceTree = "<group>"; };
 		1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataManagerTests.m; sourceTree = "<group>"; };
+		1B657A201BE4720900758205 /* NCMainGuidedChannelListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCMainGuidedChannelListViewController.h; sourceTree = "<group>"; };
+		1B657A211BE4720900758205 /* NCMainGuidedChannelListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMainGuidedChannelListViewController.m; sourceTree = "<group>"; };
+		1B657A241BE49AC900758205 /* NCChannelItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCChannelItemCell.h; sourceTree = "<group>"; };
+		1B657A251BE49AC900758205 /* NCChannelItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCChannelItemCell.m; sourceTree = "<group>"; };
 		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,10 +126,9 @@
 			children = (
 				1B2260121BE3740700CBEBBD /* Defines */,
 				1B022DD51BE34BE9004979ED /* Model */,
+				1B657A1E1BE471E900758205 /* UI Classes */,
 				1B022DA51BE34771004979ED /* AppDelegate.h */,
 				1B022DA61BE34771004979ED /* AppDelegate.m */,
-				1B022DA81BE34771004979ED /* ViewController.h */,
-				1B022DA91BE34771004979ED /* ViewController.m */,
 				1B022DAB1BE34771004979ED /* Main.storyboard */,
 				1B022DAE1BE34771004979ED /* Assets.xcassets */,
 				1B022DB01BE34771004979ED /* LaunchScreen.storyboard */,
@@ -179,6 +183,25 @@
 				1B2260181BE3C0AD00CBEBBD /* RequestDefine.h */,
 			);
 			path = Defines;
+			sourceTree = "<group>";
+		};
+		1B657A1E1BE471E900758205 /* UI Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1B657A1F1BE471E900758205 /* Main */,
+			);
+			path = "UI Classes";
+			sourceTree = "<group>";
+		};
+		1B657A1F1BE471E900758205 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1B657A201BE4720900758205 /* NCMainGuidedChannelListViewController.h */,
+				1B657A211BE4720900758205 /* NCMainGuidedChannelListViewController.m */,
+				1B657A241BE49AC900758205 /* NCChannelItemCell.h */,
+				1B657A251BE49AC900758205 /* NCChannelItemCell.m */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		4AAAAD64430E0570F69E9A6D /* Pods */ = {
@@ -380,7 +403,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B022DD81BE34BF6004979ED /* NCYoutubeDataManager.m in Sources */,
-				1B022DAA1BE34771004979ED /* ViewController.m in Sources */,
+				1B657A261BE49AC900758205 /* NCChannelItemCell.m in Sources */,
+				1B657A221BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */,
 				1B022DA71BE34771004979ED /* AppDelegate.m in Sources */,
 				1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */,
 				1B022DA41BE34771004979ED /* main.m in Sources */,
@@ -401,6 +425,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B657A231BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */,
+				1B657A271BE49AC900758205 /* NCChannelItemCell.m in Sources */,
 				1B022DC81BE34771004979ED /* SocialSearcherUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
