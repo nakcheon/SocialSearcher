@@ -114,7 +114,7 @@
 		1B657A851BE6060600758205 /* NCMainViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMainViewControllerTests.m; sourceTree = "<group>"; };
 		1BA261A91BE612D5004C3E35 /* NCSearchViewControlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCSearchViewControlerTests.m; sourceTree = "<group>"; };
 		1BA261AB1BE617F2004C3E35 /* NCVideoListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCVideoListViewControllerTests.m; sourceTree = "<group>"; };
-		1BA261AE1BE6302D004C3E35 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		1BA261AE1BE6302D004C3E35 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReadMe; path = Documents/ReadMe; sourceTree = "<group>"; };
 		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +149,8 @@
 		1B022D961BE34771004979ED = {
 			isa = PBXGroup;
 			children = (
+				1BA261AE1BE6302D004C3E35 /* ReadMe */,
+				1BA261AD1BE6302D004C3E35 /* Documents */,
 				1B022DA11BE34771004979ED /* SocialSearcher */,
 				1B022DBB1BE34771004979ED /* SocialSearcherTests */,
 				1B657A7C1BE605E800758205 /* SocialSearcherUITests */,
@@ -189,7 +191,6 @@
 		1B022DA21BE34771004979ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1BA261AD1BE6302D004C3E35 /* Documents */,
 				1B2260151BE3867E00CBEBBD /* Application-Prefix.pch */,
 				1B022DA31BE34771004979ED /* main.m */,
 			);
@@ -326,7 +327,6 @@
 		1BA261AD1BE6302D004C3E35 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				1BA261AE1BE6302D004C3E35 /* ReadMe */,
 				1B40FA291BE6308000FADC63 /* Social Searcher iOS Application.pdf */,
 			);
 			path = Documents;
