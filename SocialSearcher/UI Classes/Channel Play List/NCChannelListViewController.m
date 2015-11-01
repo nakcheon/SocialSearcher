@@ -112,11 +112,6 @@
     [super viewDidLayoutSubviews];
 }
 
-
-#pragma mark - operations
-
-
-
 #pragma mark - private methods
 
 -(BOOL)privateInitializeSetting

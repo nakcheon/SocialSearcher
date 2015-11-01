@@ -11,6 +11,7 @@
 #import "NCYoutubeDataManager.h"
 #import "NCYoutubeDataContainer.h"
 #import "NCVideoPlayerViewController.h"
+#import "RequestDefine.h"
 
 #pragma mark - enum Definition
 
@@ -57,8 +58,13 @@
 @end
 
 @interface NCVideoListViewController(PrivateMethods)
+// life cycle
 -(BOOL)privateInitializeSetting;
 -(BOOL)privateInitializeUI;
+// load more
+-(BOOL)privateRequestList;
+-(BOOL)privateAddLoadingView;
+-(BOOL)privateRemoveLoadingView;
 @end
 
 @interface NCVideoListViewController(PrivateServerCommunications)
@@ -232,6 +238,27 @@
     return YES;
 }
 
+-(BOOL)privateRequestList
+{
+    if (!_youtubeDataManager) {
+        _youtubeDataManager = [[NCYoutubeDataManager alloc] init];
+        _youtubeDataManager.delegate = self;
+    }
+    
+    [_youtubeDataManager reqeustVideoListWithPlayListInfo:_defaultPlayListID];
+    return YES;
+}
+
+-(BOOL)privateAddLoadingView
+{
+    return YES;
+}
+
+-(BOOL)privateRemoveLoadingView
+{
+    return YES;
+}
+
 #pragma mark - NCYoutubeDataManagerDelegate
 
 // reqeustVideoListWithPlayListInfo
@@ -240,20 +267,29 @@
     if (![_defaultPlayListID isEqualToString:playListID]) {
         return;
     }
+    _bNextRequestSent = NO;
+    _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubeVideoListResult objectForKey:_defaultPlayListID]];
     [_tableVideoList reloadData];
+    
+    // check load all
+    NSString* savedNextToken = [dataContainer.dicYoutubePlayListNextTokenInfo objectForKey:_defaultPlayListID];
+    if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
+        _bAllListLoaded = YES;
+    }
 }
 
 -(void)reqeustVideoListWithPlayListInfoNoData:(NSString*)playListID
 {
-    
+    _bNextRequestSent = NO;
+    _bAllListLoaded = NO;
 }
 
 -(void)reqeustVideoListWithPlayListInfoFailed:(NSString*)playListID
 {
-    
+    _bNextRequestSent = NO;
 }
 
 
@@ -410,5 +446,48 @@
 //- (void)tableView:(UITableView *)tableView didUpdateFocusInContext:(UITableViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator NS_AVAILABLE_IOS(9_0);
 //- (nullable NSIndexPath *)indexPathForPreferredFocusedViewInTableView:(UITableView *)tableView NS_AVAILABLE_IOS(9_0);
 //#endif
+
+#pragma mark - UIScrollViewDelegate
+//@optional
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (_arrayDataList.count <= 0) {
+        return;
+    }
+    
+    // load more
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
+        DLog(@"contents size = %f", scrollView.contentSize.height);
+        if (!_bNextRequestSent && !_bAllListLoaded) {
+            [_tableVideoList setContentOffset:CGPointMake(_tableVideoList.contentOffset.x, _tableVideoList.frame.origin.y + _tableVideoList.contentSize.height-self.view.frame.size.height + 40)
+                                     animated:YES];
+            _bNextRequestSent = YES;
+            if ([self privateRequestList]) {
+                [self privateAddLoadingView];
+            }
+        }
+    }
+}
+//- (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2); // any zoom scale changes
+//
+//// called on start of dragging (may require some time and or distance to move)
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+//// called on finger up if the user dragged. velocity is in points/millisecond. targetContentOffset may be changed to adjust where the scroll view comes to rest
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0);
+//// called on finger up if the user dragged. decelerate is true if it will continue moving afterwards
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+//
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;   // called on finger up as we are moving
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;      // called when scroll view grinds to a halt
+//
+//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView; // called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating
+//
+//- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;     // return a view that will be scaled. if delegate returns nil, nothing happens
+//- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view NS_AVAILABLE_IOS(3_2); // called before the scroll view begins zooming its content
+//- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale; // scale between minimum and maximum. called after any 'bounce' animations
+//
+//- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;   // return a yes if you want to scroll to the top. if not defined, assumes YES
+//- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView;      // called when scrolling animation finished. may be called immediately if already at top
 
 @end
