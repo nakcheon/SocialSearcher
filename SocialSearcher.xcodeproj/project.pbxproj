@@ -12,49 +12,38 @@
 		1B022DAD1BE34771004979ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAB1BE34771004979ED /* Main.storyboard */; };
 		1B022DAF1BE34771004979ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAE1BE34771004979ED /* Assets.xcassets */; };
 		1B022DB21BE34771004979ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DB01BE34771004979ED /* LaunchScreen.storyboard */; };
-		1B022DC81BE34771004979ED /* SocialSearcherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DC71BE34771004979ED /* SocialSearcherUITests.m */; };
 		1B022DD81BE34BF6004979ED /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
 		1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */; };
 		1B657A1B1BE453B700758205 /* NCYoutubeDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */; };
 		1B657A1C1BE453DF00758205 /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
 		1B657A1D1BE453E300758205 /* NCYoutubeDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */; };
 		1B657A221BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A211BE4720900758205 /* NCMainGuidedChannelListViewController.m */; };
-		1B657A231BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A211BE4720900758205 /* NCMainGuidedChannelListViewController.m */; };
 		1B657A261BE49AC900758205 /* NCChannelItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A251BE49AC900758205 /* NCChannelItemCell.m */; };
-		1B657A271BE49AC900758205 /* NCChannelItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A251BE49AC900758205 /* NCChannelItemCell.m */; };
 		1B657A2C1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A2B1BE4CCA800758205 /* NCUIConstantsManager.m */; };
 		1B657A2D1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A2B1BE4CCA800758205 /* NCUIConstantsManager.m */; };
-		1B657A2E1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A2B1BE4CCA800758205 /* NCUIConstantsManager.m */; };
 		1B657A311BE4CCCF00758205 /* NCUtilManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A301BE4CCCF00758205 /* NCUtilManager.m */; };
 		1B657A321BE4CCCF00758205 /* NCUtilManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A301BE4CCCF00758205 /* NCUtilManager.m */; };
-		1B657A331BE4CCCF00758205 /* NCUtilManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A301BE4CCCF00758205 /* NCUtilManager.m */; };
 		1B657A361BE4CD3000758205 /* NCImageCachingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A351BE4CD3000758205 /* NCImageCachingManager.m */; };
 		1B657A371BE4CD3000758205 /* NCImageCachingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A351BE4CD3000758205 /* NCImageCachingManager.m */; };
-		1B657A381BE4CD3000758205 /* NCImageCachingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A351BE4CD3000758205 /* NCImageCachingManager.m */; };
 		1B657A3B1BE4CD4C00758205 /* NCURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A3A1BE4CD4C00758205 /* NCURLManager.m */; };
 		1B657A3C1BE4CD4C00758205 /* NCURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A3A1BE4CD4C00758205 /* NCURLManager.m */; };
-		1B657A3D1BE4CD4C00758205 /* NCURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A3A1BE4CD4C00758205 /* NCURLManager.m */; };
 		1B657A411BE4E4F900758205 /* NCVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A401BE4E4F900758205 /* NCVideoListViewController.m */; };
 		1B657A421BE4E4F900758205 /* NCVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A401BE4E4F900758205 /* NCVideoListViewController.m */; };
-		1B657A431BE4E4F900758205 /* NCVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A401BE4E4F900758205 /* NCVideoListViewController.m */; };
 		1B657A461BE4E9B900758205 /* NCVideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A451BE4E9B900758205 /* NCVideoItemCell.m */; };
 		1B657A471BE4E9B900758205 /* NCVideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A451BE4E9B900758205 /* NCVideoItemCell.m */; };
-		1B657A481BE4E9B900758205 /* NCVideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A451BE4E9B900758205 /* NCVideoItemCell.m */; };
 		1B657A4C1BE534FA00758205 /* NCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A4B1BE534FA00758205 /* NCVideoPlayerViewController.m */; };
 		1B657A4D1BE534FA00758205 /* NCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A4B1BE534FA00758205 /* NCVideoPlayerViewController.m */; };
-		1B657A4E1BE534FA00758205 /* NCVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A4B1BE534FA00758205 /* NCVideoPlayerViewController.m */; };
 		1B657A521BE554BE00758205 /* NCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A511BE554BE00758205 /* NCSearchViewController.m */; };
 		1B657A531BE554BE00758205 /* NCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A511BE554BE00758205 /* NCSearchViewController.m */; };
-		1B657A541BE554BE00758205 /* NCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A511BE554BE00758205 /* NCSearchViewController.m */; };
 		1B657A561BE565D000758205 /* NCSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B657A551BE565D000758205 /* NCSearchResultCell.xib */; };
 		1B657A571BE565D000758205 /* NCSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B657A551BE565D000758205 /* NCSearchResultCell.xib */; };
-		1B657A581BE565D000758205 /* NCSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B657A551BE565D000758205 /* NCSearchResultCell.xib */; };
 		1B657A5B1BE5689100758205 /* NCSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A5A1BE5689100758205 /* NCSearchResultCell.m */; };
 		1B657A5C1BE5689100758205 /* NCSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A5A1BE5689100758205 /* NCSearchResultCell.m */; };
-		1B657A5D1BE5689100758205 /* NCSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A5A1BE5689100758205 /* NCSearchResultCell.m */; };
 		1B657A611BE5815100758205 /* NCChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A601BE5815100758205 /* NCChannelListViewController.m */; };
 		1B657A621BE5815100758205 /* NCChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A601BE5815100758205 /* NCChannelListViewController.m */; };
-		1B657A631BE5815100758205 /* NCChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A601BE5815100758205 /* NCChannelListViewController.m */; };
+		1B657A861BE6060600758205 /* NCMainViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A851BE6060600758205 /* NCMainViewControllerTests.m */; };
+		1BA261AA1BE612D5004C3E35 /* NCSearchViewControlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA261A91BE612D5004C3E35 /* NCSearchViewControlerTests.m */; };
+		1BA261AC1BE617F2004C3E35 /* NCVideoListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA261AB1BE617F2004C3E35 /* NCVideoListViewControllerTests.m */; };
 		BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B1A55779C04BFC31903557 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +55,7 @@
 			remoteGlobalIDString = 1B022D9E1BE34771004979ED;
 			remoteInfo = SocialSearcher;
 		};
-		1B022DC41BE34771004979ED /* PBXContainerItemProxy */ = {
+		1B657A801BE605E800758205 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B022D971BE34771004979ED /* Project object */;
 			proxyType = 1;
@@ -86,9 +75,6 @@
 		1B022DB31BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B022DB81BE34771004979ED /* SocialSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B022DBE1BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B022DC31BE34771004979ED /* SocialSearcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialSearcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B022DC71BE34771004979ED /* SocialSearcherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialSearcherUITests.m; sourceTree = "<group>"; };
-		1B022DC91BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B022DD61BE34BF6004979ED /* NCYoutubeDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCYoutubeDataManager.h; sourceTree = "<group>"; };
 		1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataManager.m; sourceTree = "<group>"; };
 		1B2260131BE3741700CBEBBD /* ProgrammingDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgrammingDefine.h; sourceTree = "<group>"; };
@@ -122,6 +108,11 @@
 		1B657A5A1BE5689100758205 /* NCSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCSearchResultCell.m; sourceTree = "<group>"; };
 		1B657A5F1BE5815100758205 /* NCChannelListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCChannelListViewController.h; sourceTree = "<group>"; };
 		1B657A601BE5815100758205 /* NCChannelListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCChannelListViewController.m; sourceTree = "<group>"; };
+		1B657A7B1BE605E700758205 /* SocialSearcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialSearcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B657A7F1BE605E800758205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B657A851BE6060600758205 /* NCMainViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCMainViewControllerTests.m; sourceTree = "<group>"; };
+		1BA261A91BE612D5004C3E35 /* NCSearchViewControlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCSearchViewControlerTests.m; sourceTree = "<group>"; };
+		1BA261AB1BE617F2004C3E35 /* NCVideoListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCVideoListViewControllerTests.m; sourceTree = "<group>"; };
 		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +134,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B022DC01BE34771004979ED /* Frameworks */ = {
+		1B657A781BE605E700758205 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -158,7 +149,7 @@
 			children = (
 				1B022DA11BE34771004979ED /* SocialSearcher */,
 				1B022DBB1BE34771004979ED /* SocialSearcherTests */,
-				1B022DC61BE34771004979ED /* SocialSearcherUITests */,
+				1B657A7C1BE605E800758205 /* SocialSearcherUITests */,
 				1B022DA01BE34771004979ED /* Products */,
 				4AAAAD64430E0570F69E9A6D /* Pods */,
 				9D443D561F42CD93AE3C1F43 /* Frameworks */,
@@ -170,7 +161,7 @@
 			children = (
 				1B022D9F1BE34771004979ED /* SocialSearcher.app */,
 				1B022DB81BE34771004979ED /* SocialSearcherTests.xctest */,
-				1B022DC31BE34771004979ED /* SocialSearcherUITests.xctest */,
+				1B657A7B1BE605E700758205 /* SocialSearcherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,15 +200,6 @@
 				1B022DBE1BE34771004979ED /* Info.plist */,
 			);
 			path = SocialSearcherTests;
-			sourceTree = "<group>";
-		};
-		1B022DC61BE34771004979ED /* SocialSearcherUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1B022DC71BE34771004979ED /* SocialSearcherUITests.m */,
-				1B022DC91BE34771004979ED /* Info.plist */,
-			);
-			path = SocialSearcherUITests;
 			sourceTree = "<group>";
 		};
 		1B022DD51BE34BE9004979ED /* Model */ = {
@@ -327,6 +309,17 @@
 			path = "Channel Play List";
 			sourceTree = "<group>";
 		};
+		1B657A7C1BE605E800758205 /* SocialSearcherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1B657A851BE6060600758205 /* NCMainViewControllerTests.m */,
+				1BA261A91BE612D5004C3E35 /* NCSearchViewControlerTests.m */,
+				1BA261AB1BE617F2004C3E35 /* NCVideoListViewControllerTests.m */,
+				1B657A7F1BE605E800758205 /* Info.plist */,
+			);
+			path = SocialSearcherUITests;
+			sourceTree = "<group>";
+		};
 		4AAAAD64430E0570F69E9A6D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,22 +378,22 @@
 			productReference = 1B022DB81BE34771004979ED /* SocialSearcherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1B022DC21BE34771004979ED /* SocialSearcherUITests */ = {
+		1B657A7A1BE605E700758205 /* SocialSearcherUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B022DD21BE34771004979ED /* Build configuration list for PBXNativeTarget "SocialSearcherUITests" */;
+			buildConfigurationList = 1B657A821BE605E800758205 /* Build configuration list for PBXNativeTarget "SocialSearcherUITests" */;
 			buildPhases = (
-				1B022DBF1BE34771004979ED /* Sources */,
-				1B022DC01BE34771004979ED /* Frameworks */,
-				1B022DC11BE34771004979ED /* Resources */,
+				1B657A771BE605E700758205 /* Sources */,
+				1B657A781BE605E700758205 /* Frameworks */,
+				1B657A791BE605E700758205 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1B022DC51BE34771004979ED /* PBXTargetDependency */,
+				1B657A811BE605E800758205 /* PBXTargetDependency */,
 			);
 			name = SocialSearcherUITests;
 			productName = SocialSearcherUITests;
-			productReference = 1B022DC31BE34771004979ED /* SocialSearcherUITests.xctest */;
+			productReference = 1B657A7B1BE605E700758205 /* SocialSearcherUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -414,12 +407,13 @@
 				TargetAttributes = {
 					1B022D9E1BE34771004979ED = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = S3GZM6J4J4;
 					};
 					1B022DB71BE34771004979ED = {
 						CreatedOnToolsVersion = 7.1;
 						TestTargetID = 1B022D9E1BE34771004979ED;
 					};
-					1B022DC21BE34771004979ED = {
+					1B657A7A1BE605E700758205 = {
 						CreatedOnToolsVersion = 7.1;
 						TestTargetID = 1B022D9E1BE34771004979ED;
 					};
@@ -440,7 +434,7 @@
 			targets = (
 				1B022D9E1BE34771004979ED /* SocialSearcher */,
 				1B022DB71BE34771004979ED /* SocialSearcherTests */,
-				1B022DC21BE34771004979ED /* SocialSearcherUITests */,
+				1B657A7A1BE605E700758205 /* SocialSearcherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,11 +459,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B022DC11BE34771004979ED /* Resources */ = {
+		1B657A791BE605E700758205 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B657A581BE565D000758205 /* NCSearchResultCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,23 +560,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B022DBF1BE34771004979ED /* Sources */ = {
+		1B657A771BE605E700758205 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B657A631BE5815100758205 /* NCChannelListViewController.m in Sources */,
-				1B657A381BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
-				1B657A431BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
-				1B657A2E1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */,
-				1B657A3D1BE4CD4C00758205 /* NCURLManager.m in Sources */,
-				1B657A231BE4720900758205 /* NCMainGuidedChannelListViewController.m in Sources */,
-				1B657A5D1BE5689100758205 /* NCSearchResultCell.m in Sources */,
-				1B657A481BE4E9B900758205 /* NCVideoItemCell.m in Sources */,
-				1B657A4E1BE534FA00758205 /* NCVideoPlayerViewController.m in Sources */,
-				1B657A271BE49AC900758205 /* NCChannelItemCell.m in Sources */,
-				1B657A541BE554BE00758205 /* NCSearchViewController.m in Sources */,
-				1B022DC81BE34771004979ED /* SocialSearcherUITests.m in Sources */,
-				1B657A331BE4CCCF00758205 /* NCUtilManager.m in Sources */,
+				1BA261AA1BE612D5004C3E35 /* NCSearchViewControlerTests.m in Sources */,
+				1BA261AC1BE617F2004C3E35 /* NCVideoListViewControllerTests.m in Sources */,
+				1B657A861BE6060600758205 /* NCMainViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,10 +578,10 @@
 			target = 1B022D9E1BE34771004979ED /* SocialSearcher */;
 			targetProxy = 1B022DB91BE34771004979ED /* PBXContainerItemProxy */;
 		};
-		1B022DC51BE34771004979ED /* PBXTargetDependency */ = {
+		1B657A811BE605E800758205 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1B022D9E1BE34771004979ED /* SocialSearcher */;
-			targetProxy = 1B022DC41BE34771004979ED /* PBXContainerItemProxy */;
+			targetProxy = 1B657A801BE605E800758205 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -709,13 +692,15 @@
 			baseConfigurationReference = B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
 				INFOPLIST_FILE = SocialSearcher/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59dc5489-9bd1-4cf8-8a43-6b23009edaf6";
 			};
 			name = Debug;
 		};
@@ -724,13 +709,15 @@
 			baseConfigurationReference = 22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
 				INFOPLIST_FILE = SocialSearcher/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59dc5489-9bd1-4cf8-8a43-6b23009edaf6";
 			};
 			name = Release;
 		};
@@ -764,7 +751,7 @@
 					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialSearcher.app/SocialSearcher";
 			};
@@ -797,33 +784,35 @@
 					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialSearcher.app/SocialSearcher";
 			};
 			name = Release;
 		};
-		1B022DD31BE34771004979ED /* Debug */ = {
+		1B657A831BE605E800758205 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
+				CODE_SIGN_IDENTITY = "iPhone Developer: NakCheon Jung (RT395PM8CR)";
 				INFOPLIST_FILE = SocialSearcherUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59dc5489-9bd1-4cf8-8a43-6b23009edaf6";
 				TEST_TARGET_NAME = SocialSearcher;
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
-		1B022DD41BE34771004979ED /* Release */ = {
+		1B657A841BE605E800758205 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
+				CODE_SIGN_IDENTITY = "iPhone Developer: NakCheon Jung (RT395PM8CR)";
 				INFOPLIST_FILE = SocialSearcherUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcherUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59dc5489-9bd1-4cf8-8a43-6b23009edaf6";
 				TEST_TARGET_NAME = SocialSearcher;
 				USES_XCTRUNNER = YES;
 			};
@@ -859,11 +848,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B022DD21BE34771004979ED /* Build configuration list for PBXNativeTarget "SocialSearcherUITests" */ = {
+		1B657A821BE605E800758205 /* Build configuration list for PBXNativeTarget "SocialSearcherUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B022DD31BE34771004979ED /* Debug */,
-				1B022DD41BE34771004979ED /* Release */,
+				1B657A831BE605E800758205 /* Debug */,
+				1B657A841BE605E800758205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

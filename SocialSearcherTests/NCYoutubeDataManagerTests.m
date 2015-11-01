@@ -91,7 +91,7 @@
 #pragma mark - NCYoutubeDataManagerDelegate
 
 // reqeustguideCategoriesList
--(void)reqeustguideCategoriesListFinished
+-(void)reqeustGuideCategoriesListFinished
 {
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     NSString* keyToFetch = [NSTimeZone countryCodeFromLocalizedName];
@@ -104,14 +104,14 @@
     }
 }
 
--(void)reqeustguideCategoriesListNoData
+-(void)reqeustGuideCategoriesListNoData
 {
     if (_expectationReqeustGuideCategoriesList) {
         [_expectationReqeustGuideCategoriesList fulfill];
     }
 }
 
--(void)reqeustguideCategoriesListFailed
+-(void)reqeustGuideCategoriesListFailed
 {
     XCTAssert(FALSE);
     if (_expectationReqeustGuideCategoriesList) {

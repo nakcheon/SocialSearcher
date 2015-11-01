@@ -43,6 +43,16 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B022DC21BE34771004979ED"
+               BuildableName = "SocialSearcherUITestsxx.xctest"
+               BlueprintName = "SocialSearcherUITestsxx"
+               ReferencedContainer = "container:SocialSearcher.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1B657A6C1BE605AF00758205"
                BuildableName = "SocialSearcherUITests.xctest"
                BlueprintName = "SocialSearcherUITests"
                ReferencedContainer = "container:SocialSearcher.xcodeproj">
