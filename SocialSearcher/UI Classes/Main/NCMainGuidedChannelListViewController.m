@@ -11,6 +11,7 @@
 #import "NCYoutubeDataContainer.h"
 #import <NSTimeZone-CountryCode/NSTimeZone+CountryCode.h>
 #import "NCVideoListViewController.h"
+#import "RequestDefine.h"
 
 #pragma mark - enum Definition
 
@@ -229,6 +230,12 @@
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubePlayListResult objectForKey:channelID]];
     [_collectionChannelList reloadData];
+    
+    // check load all
+    NSString* savedNextToken = [dataContainer.dicYoutubePlayListNextTokenInfo objectForKey:channelID];
+    if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
+        _bAllListLoaded = YES;
+    }
 }
 
 -(void)reqeustPlayListWithChannelInfoNoData:(NSString*)channelID
