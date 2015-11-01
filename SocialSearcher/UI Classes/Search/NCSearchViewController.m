@@ -117,14 +117,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
-    // remove view - apples recommendation
-    if (![self.navigationController.topViewController isEqual:self]) {
-        [self.view removeFromSuperview];
-        self.view = nil;
-    }
-    else {
-        DLog(@"NOT REMOVE VIEW::top viewcontoller::%@", [self class]);
-    }
+    //// remove view - apples recommendation
+    //if (![self.navigationController.topViewController isEqual:self]) {
+    //    [self.view removeFromSuperview];
+    //    self.view = nil;
+    //}
+    //else {
+    //    DLog(@"NOT REMOVE VIEW::top viewcontoller::%@", [self class]);
+    //}
+    DLog(@"NOT REMOVE VIEW::top viewcontoller::%@", [self class]);
 }
 
 
@@ -232,9 +233,7 @@
     DLog(@"SEARCH TEXT=%@", searchBar.text);
 
     // reset data
-    NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    [dataContainer.dicYoutubeSearchResult removeObjectForKey:_searchBar.text];
-    [dataContainer.dicYoutubeSearchNextTokenInfo removeObjectForKey:_searchBar.text];
+    [[NCYoutubeDataContainer sharedInstance] RemoveYoutubeSearchResult:_searchBar.text];
     
     // request
     [_youtubeDataManager reqeustSearch:_searchBar.text];
