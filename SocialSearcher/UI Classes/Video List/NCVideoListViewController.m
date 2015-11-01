@@ -108,7 +108,24 @@
 {
     NSLog(@"NCVideoListViewController::DEALLOC");
 }
-#pragma mark - overrides
+
+#pragma mark - view controller
+
+-(void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    
+    // remove view - apples recommendation
+    if (![self.navigationController.topViewController isEqual:self]) {
+        [self.view removeFromSuperview];
+        self.view = nil;
+    }
+    else {
+        DLog(@"NOT REMOVE VIEW::top viewcontoller::%@", [self class]);
+    }
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
