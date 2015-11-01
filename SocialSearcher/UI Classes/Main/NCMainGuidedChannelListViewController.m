@@ -240,8 +240,19 @@
 
 -(void)reqeustPlayListWithChannelInfoNoData:(NSString*)channelID
 {
-    _bNextRequestSent = NO;
-    _bAllListLoaded = NO;
+    NCMainGuidedChannelListViewController* __weak weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong NCMainGuidedChannelListViewController* strongSelf = weakSelf;
+        strongSelf.bNextRequestSent = NO;
+        strongSelf.bAllListLoaded = NO;
+        
+        // check load all
+        NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
+        NSString* savedNextToken = [dataContainer.dicYoutubePlayListNextTokenInfo objectForKey:channelID];
+        if (!savedNextToken) {
+            strongSelf.bAllListLoaded = YES;
+        }
+    });
 }
 
 -(void)reqeustPlayListWithChannelInfoFailed:(NSString*)channelID

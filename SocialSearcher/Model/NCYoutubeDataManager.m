@@ -339,7 +339,7 @@
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     NSString* savedNextToken = [dataContainer.dicYoutubeVideoListNextTokenInfo objectForKey:playListID];
     if (savedNextToken) {
-        strFullURL = [NSString stringWithFormat:YOUTUBE_VIDEO_MORE_LIST, playListID, savedNextToken, DEFAULT_MAXRESULTS, GOOGLE_API_KEY];
+        strFullURL = [NSString stringWithFormat:YOUTUBE_VIDEO_MORE_LIST, playListID, DEFAULT_MAXRESULTS, savedNextToken, GOOGLE_API_KEY];
     }
     else {
         strFullURL = [NSString stringWithFormat:YOUTUBE_VIDEO_LIST, playListID, DEFAULT_MAXRESULTS, GOOGLE_API_KEY];
@@ -531,7 +531,7 @@
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     NSString* savedNextToken = [dataContainer.dicYoutubeSearchNextTokenInfo objectForKey:query];
     if (savedNextToken) {
-        strFullURL = [NSString stringWithFormat:YOUTUBE_SEARCH_MORE_LIST, query, savedNextToken, DEFAULT_MAXRESULTS, GOOGLE_API_KEY];
+        strFullURL = [NSString stringWithFormat:YOUTUBE_SEARCH_MORE_LIST, query, DEFAULT_MAXRESULTS, savedNextToken, GOOGLE_API_KEY];
     }
     else {
         strFullURL = [NSString stringWithFormat:YOUTUBE_SEARCH, query, DEFAULT_MAXRESULTS, GOOGLE_API_KEY];

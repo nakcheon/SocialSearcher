@@ -47,10 +47,11 @@
     
     // load more
     NCYoutubeDataManager* _youtubeDataManager;
-    BOOL _bNextRequestSent;
-    BOOL _bAllListLoaded;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableVideoList;
+// load more
+@property (assign, nonatomic) BOOL bNextRequestSent;
+@property (assign, nonatomic) BOOL bAllListLoaded;
 @end
 
 @interface NCVideoListViewController(CreateMethods)
@@ -275,7 +276,7 @@
     [_tableVideoList reloadData];
     
     // check load all
-    NSString* savedNextToken = [dataContainer.dicYoutubePlayListNextTokenInfo objectForKey:_defaultPlayListID];
+    NSString* savedNextToken = [dataContainer.dicYoutubeVideoListNextTokenInfo objectForKey:_defaultPlayListID];
     if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
         _bAllListLoaded = YES;
     }
@@ -283,8 +284,19 @@
 
 -(void)reqeustVideoListWithPlayListInfoNoData:(NSString*)playListID
 {
-    _bNextRequestSent = NO;
-    _bAllListLoaded = NO;
+    NCVideoListViewController* __weak weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong NCVideoListViewController* strongSelf = weakSelf;
+        strongSelf.bNextRequestSent = NO;
+        strongSelf.bAllListLoaded = NO;
+        
+        // check load all
+        NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
+        NSString* savedNextToken = [dataContainer.dicYoutubeVideoListNextTokenInfo objectForKey:_defaultPlayListID];
+        if (!savedNextToken) {
+            strongSelf.bAllListLoaded = YES;
+        }
+    });
 }
 
 -(void)reqeustVideoListWithPlayListInfoFailed:(NSString*)playListID

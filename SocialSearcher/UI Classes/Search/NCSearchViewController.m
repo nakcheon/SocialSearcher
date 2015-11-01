@@ -13,6 +13,7 @@
 #import "NCVideoPlayerViewController.h"
 #import "NCVideoListViewController.h"
 #import "NCChannelListViewController.h"
+#import "RequestDefine.h"
 
 #pragma mark - enum Definition
 
@@ -50,17 +51,22 @@
     
     // load more
     NCYoutubeDataManager* _youtubeDataManager;
-    BOOL _bNextRequestSent;
-    BOOL _bAllListLoaded;
 }
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *videoSearchDisplayController;
+// load more
+@property (assign, nonatomic) BOOL bNextRequestSent;
+@property (assign, nonatomic) BOOL bAllListLoaded;
 @end
 
 @interface NCSearchViewController(CreateMethods)
 @end
 
 @interface NCSearchViewController(PrivateMethods)
+// load more
+-(BOOL)privateRequestList;
+-(BOOL)privateAddLoadingView;
+-(BOOL)privateRemoveLoadingView;
 @end
 
 @interface NCSearchViewController(PrivateServerCommunications)
@@ -177,6 +183,7 @@
         _videoSearchDisplayController.searchResultsTableView.estimatedRowHeight = 100.0;
         _videoSearchDisplayController.searchResultsTableView.rowHeight = UITableViewAutomaticDimension;
         _videoSearchDisplayController.searchResultsTableView.separatorColor = [UIColor clearColor];
+        _videoSearchDisplayController.searchResultsTableView.delegate = self;
     }
     // refresh
     [_videoSearchDisplayController.searchResultsTableView reloadData];
@@ -192,24 +199,69 @@
     }
 }
 
+#pragma mark - private methods
+
+-(BOOL)privateRequestList
+{
+    if (!_youtubeDataManager) {
+        _youtubeDataManager = [[NCYoutubeDataManager alloc] init];
+        _youtubeDataManager.delegate = self;
+    }
+    
+    [_youtubeDataManager reqeustSearch:_searchBar.text];
+    return YES;
+}
+
+-(BOOL)privateAddLoadingView
+{
+    return YES;
+}
+
+-(BOOL)privateRemoveLoadingView
+{
+    return YES;
+}
+
+
 #pragma mark - NCYoutubeDataManagerDelegate
 
 // reqeustSearch
 -(void)reqeustSearchFinished:(NSString*)query
 {
+    _bNextRequestSent = NO;
+    _bAllListLoaded = NO;
+    
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubeSearchResult objectForKey:query]];
     [_videoSearchDisplayController.searchResultsTableView reloadData];
+    
+    // check load all
+    NSString* savedNextToken = [dataContainer.dicYoutubeSearchNextTokenInfo objectForKey:query];
+    if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
+        _bAllListLoaded = YES;
+    }
 }
 
 -(void)reqeustSearchNoData:(NSString*)query
 {
-    
+    NCSearchViewController* __weak weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong NCSearchViewController* strongSelf = weakSelf;
+        strongSelf.bNextRequestSent = NO;
+        strongSelf.bAllListLoaded = NO;
+        
+        // check load all
+        NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
+        NSString* savedNextToken = [dataContainer.dicYoutubeSearchNextTokenInfo objectForKey:query];
+        if (!savedNextToken) {
+            strongSelf.bAllListLoaded = YES;
+        }
+    });
 }
 
 -(void)reqeustSearchFailed:(NSString*)query
 {
-    
+    _bNextRequestSent = NO;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -413,5 +465,48 @@
 //- (void)tableView:(UITableView *)tableView didUpdateFocusInContext:(UITableViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator NS_AVAILABLE_IOS(9_0);
 //- (nullable NSIndexPath *)indexPathForPreferredFocusedViewInTableView:(UITableView *)tableView NS_AVAILABLE_IOS(9_0);
 //#endif
+
+#pragma mark - UIScrollViewDelegate
+//@optional
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (_arrayDataList.count <= 0) {
+        return;
+    }
+    
+    // load more
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
+        DLog(@"contents size = %f", scrollView.contentSize.height);
+        if (!_bNextRequestSent && !_bAllListLoaded) {
+            [_videoSearchDisplayController.searchResultsTableView setContentOffset:CGPointMake(_videoSearchDisplayController.searchResultsTableView.contentOffset.x, _videoSearchDisplayController.searchResultsTableView.frame.origin.y + _videoSearchDisplayController.searchResultsTableView.contentSize.height-self.view.frame.size.height + 40)
+                                     animated:YES];
+            _bNextRequestSent = YES;
+            if ([self privateRequestList]) {
+                [self privateAddLoadingView];
+            }
+        }
+    }
+}
+//- (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2); // any zoom scale changes
+//
+//// called on start of dragging (may require some time and or distance to move)
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+//// called on finger up if the user dragged. velocity is in points/millisecond. targetContentOffset may be changed to adjust where the scroll view comes to rest
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0);
+//// called on finger up if the user dragged. decelerate is true if it will continue moving afterwards
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+//
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;   // called on finger up as we are moving
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;      // called when scroll view grinds to a halt
+//
+//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView; // called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating
+//
+//- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;     // return a view that will be scaled. if delegate returns nil, nothing happens
+//- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view NS_AVAILABLE_IOS(3_2); // called before the scroll view begins zooming its content
+//- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale; // scale between minimum and maximum. called after any 'bounce' animations
+//
+//- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView;   // return a yes if you want to scroll to the top. if not defined, assumes YES
+//- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView;      // called when scrolling animation finished. may be called immediately if already at top
 
 @end

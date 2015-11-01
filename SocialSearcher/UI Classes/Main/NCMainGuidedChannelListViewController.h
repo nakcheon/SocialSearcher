@@ -33,11 +33,12 @@
     // load more
     NCYoutubeDataManager* _youtubeDataManager;
     NSString* _defaultChannelID;
-    BOOL _bNextRequestSent;
-    BOOL _bAllListLoaded;
 }
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionChannelList;
 @property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionChannelListLayout;
+// load more
+@property (assign, nonatomic) BOOL bNextRequestSent;
+@property (assign, nonatomic) BOOL bAllListLoaded;
 @end
 
 @interface NCMainGuidedChannelListViewController(CreateMethods)
