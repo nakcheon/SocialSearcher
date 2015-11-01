@@ -319,6 +319,7 @@
                         <outlet property="videoSearchDisplayController" destination="nYe-P5-Trl" id="1HH-ph-A9M"/>
                         <segue destination="nnP-2T-65w" kind="presentation" identifier="ShowSearchViewFromSearchView" modalPresentationStyle="overFullScreen" id="9wx-VL-411"/>
                         <segue destination="NuX-c1-8aj" kind="show" identifier="ShowVideoListViewFromSearchView" id="dFD-gQ-Dle"/>
+                        <segue destination="Fov-DD-gWB" kind="show" identifier="ShowChannelViewFromSearchView" id="XMT-K4-4Zn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96n-jC-c3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,6 +420,114 @@
             </objects>
             <point key="canvasLocation" x="389" y="462"/>
         </scene>
+        <!--Channel List View Controller-->
+        <scene sceneID="WQ1-0F-TQ9">
+            <objects>
+                <viewController id="Fov-DD-gWB" customClass="NCChannelListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UdK-5z-F8v"/>
+                        <viewControllerLayoutGuide type="bottom" id="lQD-gf-Z3d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wDf-kT-V5f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TaU-bT-cMk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="cdt-9v-H3G">
+                                    <size key="itemSize" width="367" height="320"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NCChannelItemCell" id="FfR-9i-23H" customClass="NCChannelItemCell">
+                                        <rect key="frame" x="116.5" y="69" width="367" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="320"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xp7-qe-pGU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="367" height="206.5"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="xp7-qe-pGU" secondAttribute="height" multiplier="16:9" id="hra-8U-BYp"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpr-FQ-VSc">
+                                                    <rect key="frame" x="5" y="211.5" width="357" height="100"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="zpr-FQ-VSc" secondAttribute="height" multiplier="16:4.5" id="JMZ-ex-6zS"/>
+                                                        <constraint firstAttribute="width" secondItem="zpr-FQ-VSc" secondAttribute="height" multiplier="16:4.5" id="ptL-kV-dtn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ptL-kV-dtn"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="ptL-kV-dtn"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="xp7-qe-pGU" secondAttribute="trailing" constant="-8" id="WVI-Ry-0ro"/>
+                                            <constraint firstItem="xp7-qe-pGU" firstAttribute="top" secondItem="FfR-9i-23H" secondAttribute="topMargin" constant="-8" id="b3C-E1-iGu"/>
+                                            <constraint firstItem="zpr-FQ-VSc" firstAttribute="top" secondItem="xp7-qe-pGU" secondAttribute="bottom" constant="5" id="eks-a6-j9E"/>
+                                            <constraint firstItem="xp7-qe-pGU" firstAttribute="leading" secondItem="FfR-9i-23H" secondAttribute="leadingMargin" constant="-8" id="f6q-gm-PGa"/>
+                                            <constraint firstItem="zpr-FQ-VSc" firstAttribute="leading" secondItem="FfR-9i-23H" secondAttribute="leadingMargin" constant="-3" id="gvH-JU-4By"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zpr-FQ-VSc" secondAttribute="trailing" constant="-3" id="kN0-Th-WYE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="zpr-FQ-VSc" id="p7M-Tz-QCc"/>
+                                            <outlet property="viewImage" destination="xp7-qe-pGU" id="Skg-HH-DCT"/>
+                                            <segue destination="NuX-c1-8aj" kind="show" identifier="MoveToVideoList" id="g8E-fI-wVi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fov-DD-gWB" id="euA-Z9-wOx"/>
+                                    <outlet property="delegate" destination="Fov-DD-gWB" id="aqC-lq-eFh"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TaU-bT-cMk" firstAttribute="top" secondItem="wDf-kT-V5f" secondAttribute="topMargin" id="Ht4-Dg-iym"/>
+                            <constraint firstItem="TaU-bT-cMk" firstAttribute="leading" secondItem="wDf-kT-V5f" secondAttribute="leading" id="QbM-Ud-nnc"/>
+                            <constraint firstItem="lQD-gf-Z3d" firstAttribute="top" secondItem="TaU-bT-cMk" secondAttribute="bottom" id="Teq-ez-KyK"/>
+                            <constraint firstItem="lQD-gf-Z3d" firstAttribute="top" secondItem="TaU-bT-cMk" secondAttribute="bottom" id="x9T-dv-IIK"/>
+                            <constraint firstAttribute="trailing" secondItem="TaU-bT-cMk" secondAttribute="trailing" id="yQ6-Mz-Txd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Teq-ez-KyK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="collectionChannelList" destination="TaU-bT-cMk" id="Ig0-mf-i5F"/>
+                        <outlet property="collectionChannelListLayout" destination="cdt-9v-H3G" id="173-Ik-JfU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKZ-Y8-6Xa" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2362" y="2096"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_cross_white" width="32" height="32"/>
@@ -426,7 +535,7 @@
         <image name="icon_search_focus" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P9C-Gi-P4G"/>
         <segue reference="WZG-eQ-N69"/>
+        <segue reference="g8E-fI-wVi"/>
     </inferredMetricsTieBreakers>
 </document>

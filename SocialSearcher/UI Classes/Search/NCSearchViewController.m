@@ -12,6 +12,7 @@
 #import "NCYoutubeDataContainer.h"
 #import "NCVideoPlayerViewController.h"
 #import "NCVideoListViewController.h"
+#import "NCChannelListViewController.h"
 
 #pragma mark - enum Definition
 
@@ -93,6 +94,9 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
     [self initialize];
 }
 
@@ -130,6 +134,16 @@
         
         // set data
         NCVideoListViewController *vc = [segue destinationViewController];
+        vc.dicInfo = dicInfo;
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowChannelViewFromSearchView"]) {
+        // fetch slected data
+        NSIndexPath* indexPathSelected = [_videoSearchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
+        DLog(@"selected dic=%@", dicInfo);
+        
+        // set data
+        NCChannelListViewController *vc = [segue destinationViewController];
         vc.dicInfo = dicInfo;
     }
 }
@@ -201,7 +215,7 @@
 {
     DLog(@"SEARCH TEXT=%@", searchBar.text);
 
-    // reset saved data
+    // reset data
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     [dataContainer.dicYoutubeSearchResult removeObjectForKey:_searchBar.text];
     [dataContainer.dicYoutubeSearchNextTokenInfo removeObjectForKey:_searchBar.text];
@@ -340,9 +354,9 @@
     else if (cell.bIsList) {
         [self performSegueWithIdentifier:@"ShowVideoListViewFromSearchView" sender:cell];
     }
-//    else if (cell.bIsChannel) {
-//        [self performSegueWithIdentifier:@"ShowVideoListViewFromSearchView" sender:cell];
-//    }
+    else if (cell.bIsChannel) {
+        [self performSegueWithIdentifier:@"ShowChannelViewFromSearchView" sender:cell];
+    }
     
 }
 //- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0);

@@ -52,6 +52,9 @@
 		1B657A5B1BE5689100758205 /* NCSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A5A1BE5689100758205 /* NCSearchResultCell.m */; };
 		1B657A5C1BE5689100758205 /* NCSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A5A1BE5689100758205 /* NCSearchResultCell.m */; };
 		1B657A5D1BE5689100758205 /* NCSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A5A1BE5689100758205 /* NCSearchResultCell.m */; };
+		1B657A611BE5815100758205 /* NCChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A601BE5815100758205 /* NCChannelListViewController.m */; };
+		1B657A621BE5815100758205 /* NCChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A601BE5815100758205 /* NCChannelListViewController.m */; };
+		1B657A631BE5815100758205 /* NCChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A601BE5815100758205 /* NCChannelListViewController.m */; };
 		BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B1A55779C04BFC31903557 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +120,8 @@
 		1B657A551BE565D000758205 /* NCSearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NCSearchResultCell.xib; sourceTree = "<group>"; };
 		1B657A591BE5689100758205 /* NCSearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCSearchResultCell.h; sourceTree = "<group>"; };
 		1B657A5A1BE5689100758205 /* NCSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCSearchResultCell.m; sourceTree = "<group>"; };
+		1B657A5F1BE5815100758205 /* NCChannelListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCChannelListViewController.h; sourceTree = "<group>"; };
+		1B657A601BE5815100758205 /* NCChannelListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCChannelListViewController.m; sourceTree = "<group>"; };
 		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +247,7 @@
 				1B657A1F1BE471E900758205 /* Main */,
 				1B657A3E1BE4E4E600758205 /* Video List */,
 				1B657A491BE534E200758205 /* Video Player */,
+				1B657A5E1BE5813200758205 /* Channel Play List */,
 				1B657A4F1BE554A100758205 /* Search */,
 			);
 			path = "UI Classes";
@@ -310,6 +316,15 @@
 				1B657A551BE565D000758205 /* NCSearchResultCell.xib */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		1B657A5E1BE5813200758205 /* Channel Play List */ = {
+			isa = PBXGroup;
+			children = (
+				1B657A5F1BE5815100758205 /* NCChannelListViewController.h */,
+				1B657A601BE5815100758205 /* NCChannelListViewController.m */,
+			);
+			path = "Channel Play List";
 			sourceTree = "<group>";
 		};
 		4AAAAD64430E0570F69E9A6D /* Pods */ = {
@@ -526,6 +541,7 @@
 				1B657A411BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
 				1B657A361BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
 				1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */,
+				1B657A611BE5815100758205 /* NCChannelListViewController.m in Sources */,
 				1B022DA41BE34771004979ED /* main.m in Sources */,
 				1B657A461BE4E9B900758205 /* NCVideoItemCell.m in Sources */,
 			);
@@ -535,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B657A621BE5815100758205 /* NCChannelListViewController.m in Sources */,
 				1B657A371BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
 				1B657A421BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
 				1B657A2D1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */,
@@ -554,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B657A631BE5815100758205 /* NCChannelListViewController.m in Sources */,
 				1B657A381BE4CD3000758205 /* NCImageCachingManager.m in Sources */,
 				1B657A431BE4E4F900758205 /* NCVideoListViewController.m in Sources */,
 				1B657A2E1BE4CCA800758205 /* NCUIConstantsManager.m in Sources */,

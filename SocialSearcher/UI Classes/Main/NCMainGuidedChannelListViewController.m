@@ -9,7 +9,6 @@
 #import "NCMainGuidedChannelListViewController.h"
 #import "NCChannelItemCell.h"
 #import "NCYoutubeDataContainer.h"
-#import "NCYoutubeDataManager.h"
 #import <NSTimeZone-CountryCode/NSTimeZone+CountryCode.h>
 #import "NCVideoListViewController.h"
 
@@ -35,54 +34,6 @@
  *****************************************************************************/
 
 
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
-
-@interface NCMainGuidedChannelListViewController() <UICollectionViewDataSource,
-                                                    UICollectionViewDelegate,
-                                                    UICollectionViewDelegateFlowLayout,
-                                                    NCYoutubeDataManagerDelegate,
-                                                    UIScrollViewDelegate>
-{
-    NSArray* _arrayDataList;
-    
-    // load more
-    NCYoutubeDataManager* _youtubeDataManager;
-    NSString* _defaultChannelID;
-    BOOL _bNextRequestSent;
-    BOOL _bAllListLoaded;
-}
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionChannelList;
-@property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionChannelListLayout;
-@end
-
-@interface NCMainGuidedChannelListViewController(CreateMethods)
-@end
-
-@interface NCMainGuidedChannelListViewController(PrivateMethods)
-// life cycle
--(BOOL)privateInitializeSetting;
--(BOOL)privateInitializeUI;
-// load more
--(BOOL)privateRequestList;
--(BOOL)privateAddLoadingView;
--(BOOL)privateRemoveLoadingView;
-@end
-
-@interface NCMainGuidedChannelListViewController(PrivateServerCommunications)
-@end
-
-@interface NCMainGuidedChannelListViewController(selectors)
-@end
-
-@interface NCMainGuidedChannelListViewController(IBActions)
-@end
-
-@interface NCMainGuidedChannelListViewController(ProcessMethod)
-@end
-
-
 /******************************************************************************************
  * Implementation
  ******************************************************************************************/
@@ -101,6 +52,9 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
     [self initialize];
 }
 
