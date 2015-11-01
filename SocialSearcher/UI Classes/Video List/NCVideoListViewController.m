@@ -214,9 +214,7 @@
     }
     
     // reset data
-    NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    [dataContainer.dicYoutubeVideoListResult removeObjectForKey:_defaultPlayListID];
-    [dataContainer.dicYoutubeVideoListNextTokenInfo removeObjectForKey:_defaultPlayListID];
+    [[NCYoutubeDataContainer sharedInstance] RemoveYoutubeVideoList:_defaultPlayListID];
     
     // data came from search view controller
     [_youtubeDataManager reqeustVideoListWithPlayListInfo:_defaultPlayListID];

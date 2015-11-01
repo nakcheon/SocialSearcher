@@ -101,4 +101,23 @@ static NCYoutubeDataContainer* sharedInstance = nil;
     // do nothing
 }
 
+-(void)RemoveYoutubePlayList:(NSString*)channelID
+{
+    [_dicYoutubePlayListNextTokenInfo removeObjectForKey:channelID];
+    [_dicYoutubePlayListResult removeObjectForKey:channelID];
+}
+
+-(void)RemoveYoutubeSearchResult:(NSString*)query
+{
+    [_dicYoutubeSearchResult removeObjectForKey:query];
+    [_dicYoutubeSearchNextTokenInfo removeObjectForKey:query];
+}
+
+-(void)RemoveYoutubeVideoList:(NSString*)playListID
+{
+    [_dicYoutubeVideoListResult removeObjectForKey:playListID];
+    [_dicYoutubeVideoListNextTokenInfo removeObjectForKey:playListID];
+}
+
+
 @end

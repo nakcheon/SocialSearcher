@@ -128,10 +128,9 @@
     _defaultChannelID = [_dicInfo valueForKeyPath:@"snippet.channelId"];
     
     // reset data
-    NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    [dataContainer.dicYoutubePlayListNextTokenInfo removeObjectForKey:_defaultChannelID];
-    [dataContainer.dicYoutubePlayListResult removeObjectForKey:_defaultChannelID];
+    [[NCYoutubeDataContainer sharedInstance] RemoveYoutubePlayList:_defaultChannelID];
     
+    // request
     [_youtubeDataManager reqeustPlayListWithChannelInfo:_defaultChannelID];
     
     return YES;

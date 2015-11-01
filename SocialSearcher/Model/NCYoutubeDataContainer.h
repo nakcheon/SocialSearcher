@@ -22,4 +22,8 @@
 -(void)initialize;
 -(void)prepareForRelease;
 
+-(void)RemoveYoutubePlayList:(NSString*)channelID;
+-(void)RemoveYoutubeSearchResult:(NSString*)query;
+-(void)RemoveYoutubeVideoList:(NSString*)playListID;
+
 @end
