@@ -10,9 +10,6 @@
 #import "NCYoutubeDataManager.h"
 
 @interface NCMainGuidedChannelListViewController : UIViewController
-
--(void)initialize;
-
 @end
 
 

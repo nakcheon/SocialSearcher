@@ -18,22 +18,14 @@
 
 #pragma mark - class life cycle
 
--(id)init
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"NCVideoItemCell::INIT");
+        NSLog(@"NCChannelItemCell::INIT");
     }
     return self;
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 -(void)dealloc
 {
@@ -384,12 +376,12 @@
 
 -(void)reqeustVideoDetailInfoNoData:(NSString*)videoID
 {
-    
+    // do nothing
 }
 
 -(void)reqeustVideoDetailInfoFailed:(NSString*)videoID
 {
-    
+    // do nothing
 }
 
 @end

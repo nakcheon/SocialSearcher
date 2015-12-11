@@ -64,7 +64,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self initialize];
+    [self privateInitializeSetting];
+    [self privateInitializeUI];
 }
 
 -(void)dealloc
@@ -166,14 +167,6 @@
 {
     _lblTitle.text = _strTitle;
     return YES;
-}
-
-#pragma mark - operations
-
--(void)initialize
-{
-    [self privateInitializeSetting];
-    [self privateInitializeUI];
 }
 
 #pragma mark - private methods

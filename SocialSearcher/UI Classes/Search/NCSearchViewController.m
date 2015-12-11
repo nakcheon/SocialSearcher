@@ -36,6 +36,7 @@
 @end
 
 @interface NCSearchViewController(PrivateMethods)
+-(BOOL)privateInitializeSetting;
 // load more
 -(BOOL)privateRequestList;
 @end
@@ -60,7 +61,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self initialize];
+    [self privateInitializeSetting];
 }
 
 -(void)dealloc
@@ -141,17 +142,16 @@
     [_videoSearchDisplayController.searchResultsTableView reloadData];
 }
 
-#pragma mark - operations
+#pragma mark - private methods
 
--(void)initialize
+-(BOOL)privateInitializeSetting
 {
     if (!_youtubeDataManager) {
         _youtubeDataManager = [[NCYoutubeDataManager alloc] init];
         _youtubeDataManager.delegate = self;
     }
+    return YES;
 }
-
-#pragma mark - private methods
 
 -(BOOL)privateRequestList
 {

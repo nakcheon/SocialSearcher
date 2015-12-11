@@ -11,6 +11,4 @@
 @interface NCVideoPlayerViewController : UIViewController
 @property (nonatomic, retain) NSDictionary* dicInfo;
 
--(void)initialize;
-
 @end

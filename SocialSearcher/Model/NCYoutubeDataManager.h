@@ -40,9 +40,6 @@
 @interface NCYoutubeDataManager : NSObject
 @property (nonatomic, weak) id<NCYoutubeDataManagerDelegate> delegate;
 
--(void)initialize;
--(void)prepareForRelease;
-
 -(BOOL)reqeustGuideCategoriesList;
 -(BOOL)reqeustPlayListWithChannelInfo:(NSString*)channelID;
 -(BOOL)reqeustVideoListWithPlayListInfo:(NSString*)playListID;

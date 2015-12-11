@@ -10,19 +10,31 @@
 
 @implementation NCSearchResultCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+#pragma mark - class life cycle
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        NSLog(@"NCSearchResultCell::INIT");
+    }
+    return self;
 }
-*/
+
+-(void)dealloc
+{
+    NSLog(@"NCSearchResultCell::DEALLOC");
+}
+
+#pragma mark - UICollectionViewCell
 
 -(void)prepareForReuse
 {
     [super prepareForReuse];
     _bIsList = NO;
 }
+
+#pragma mark - private methods
 
 -(BOOL)privateInitializeSetting
 {

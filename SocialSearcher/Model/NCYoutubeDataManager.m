@@ -19,11 +19,6 @@
 @property (assign, nonatomic) BOOL bIsFinish;
 @end
 
-@interface NCYoutubeDataManager(PrivateMethods)
--(BOOL)privateInitializeSetting;
--(BOOL)privateInitializeUI;
-@end
-
 #pragma mark - Implementation
 
 @implementation NCYoutubeDataManager
@@ -39,34 +34,10 @@
     return self;
 }
 
--(void)prepareForRelease
-{
-    _bIsFinish = YES;
-}
-
 -(void)dealloc
 {
     DLog(@"NCYoutubeDataManager::DEALLOC");
-}
-
-#pragma mark - operations
-
--(void)initialize
-{
-    [self privateInitializeSetting];
-    [self privateInitializeUI];
-}
-
-#pragma mark - private methods
-
--(BOOL)privateInitializeSetting
-{
-    return YES;
-}
-
--(BOOL)privateInitializeUI
-{
-    return YES;
+    _bIsFinish = YES;
 }
 
 #pragma mark - request operations

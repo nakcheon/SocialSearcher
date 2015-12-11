@@ -33,19 +33,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self initialize];
+    [self privateInitializeSetting];
 }
 
 -(void)dealloc
 {
     NSLog(@"NCMainGuidedChannelListViewController::DEALLOC");
-}
-
-#pragma mark - operations
-
--(void)initialize
-{
-    [self privateInitializeSetting];
 }
 
 #pragma mark - view controller
