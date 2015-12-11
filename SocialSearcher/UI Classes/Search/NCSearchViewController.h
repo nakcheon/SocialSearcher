@@ -10,5 +10,4 @@
 
 @interface NCSearchViewController : UIViewController
 -(void)initialize;
--(void)prepareForRelease;
 @end

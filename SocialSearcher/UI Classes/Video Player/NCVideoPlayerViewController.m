@@ -10,31 +10,7 @@
 #import <YTPlayerView.h>
 #import "NCYoutubeDataContainer.h"
 
-#pragma mark - enum Definition
-
-/******************************************************************************
- * enum Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * String Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Constant Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Function Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
+#pragma mark - Definition
 
 @interface NCVideoPlayerViewController() <YTPlayerViewDelegate>
 {
@@ -63,24 +39,13 @@
 -(BOOL)privateInitializeUI;
 @end
 
-@interface NCVideoPlayerViewController(PrivateServerCommunications)
-@end
-
 @interface NCVideoPlayerViewController(selectors)
 // default youtube player
 -(void)selectorReceivedPlaybackStartedNotification:(NSNotification*)notification;
 @end
 
-@interface NCVideoPlayerViewController(IBActions)
-@end
+#pragma mark - Implementation
 
-@interface NCVideoPlayerViewController(ProcessMethod)
-@end
-
-
-/******************************************************************************************
- * Implementation
- ******************************************************************************************/
 @implementation NCVideoPlayerViewController
 
 #pragma mark - class life cycle
@@ -100,11 +65,6 @@
     // Do any additional setup after loading the view.
     
     [self initialize];
-}
-
--(void)prepareForRelease
-{
-    
 }
 
 -(void)dealloc

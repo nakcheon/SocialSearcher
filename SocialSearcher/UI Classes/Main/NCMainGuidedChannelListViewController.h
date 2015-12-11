@@ -12,14 +12,11 @@
 @interface NCMainGuidedChannelListViewController : UIViewController
 
 -(void)initialize;
--(void)prepareForRelease;
 
 @end
 
 
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
+#pragma mark - Definition
 
 @interface NCMainGuidedChannelListViewController() <UICollectionViewDataSource,
                                                     UICollectionViewDelegate,
@@ -47,21 +44,7 @@
 @interface NCMainGuidedChannelListViewController(PrivateMethods)
 // life cycle
 -(BOOL)privateInitializeSetting;
--(BOOL)privateInitializeUI;
 // load more
 -(BOOL)privateRequestList;
--(BOOL)privateAddLoadingView;
--(BOOL)privateRemoveLoadingView;
 @end
 
-@interface NCMainGuidedChannelListViewController(PrivateServerCommunications)
-@end
-
-@interface NCMainGuidedChannelListViewController(selectors)
-@end
-
-@interface NCMainGuidedChannelListViewController(IBActions)
-@end
-
-@interface NCMainGuidedChannelListViewController(ProcessMethod)
-@end

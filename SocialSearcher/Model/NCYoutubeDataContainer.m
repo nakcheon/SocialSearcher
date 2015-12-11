@@ -8,57 +8,8 @@
 
 #import "NCYoutubeDataContainer.h"
 
-#pragma mark - enum Definition
+#pragma mark - Implementation
 
-/******************************************************************************
- * enum Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * String Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Constant Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Function Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
-
-@interface NCYoutubeDataContainer()
-@end
-
-@interface NCYoutubeDataContainer(CreateMethods)
-@end
-
-@interface NCYoutubeDataContainer(PrivateMethods)
-@end
-
-@interface NCYoutubeDataContainer(PrivateServerCommunications)
-@end
-
-@interface NCYoutubeDataContainer(selectors)
-@end
-
-@interface NCYoutubeDataContainer(IBActions)
-@end
-
-@interface NCYoutubeDataContainer(ProcessMethod)
-@end
-
-
-/******************************************************************************************
- * Implementation
- ******************************************************************************************/
 @implementation NCYoutubeDataContainer
 
 #pragma mark - class life cycle
@@ -69,7 +20,6 @@ static NCYoutubeDataContainer* sharedInstance = nil;
     @synchronized(self){
         if(!sharedInstance) {
             sharedInstance = [[NCYoutubeDataContainer alloc] init];
-            [sharedInstance initialize];
         }
     }
     return sharedInstance;
@@ -84,22 +34,12 @@ static NCYoutubeDataContainer* sharedInstance = nil;
     return self;
 }
 
--(void)prepareForRelease
-{
-    
-}
-
 -(void)dealloc
 {
     DLog(@"NCYoutubeDataContainer::DEALLOC");
 }
 
 #pragma mark - operations
-
--(void)initialize
-{
-    // do nothing
-}
 
 -(void)RemoveYoutubePlayList:(NSString*)channelID
 {

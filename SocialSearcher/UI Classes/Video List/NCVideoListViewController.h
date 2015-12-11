@@ -12,6 +12,5 @@
 @property (nonatomic, retain) NSDictionary* dicInfo;
 
 -(void)initialize;
--(void)prepareForRelease;
 
 @end

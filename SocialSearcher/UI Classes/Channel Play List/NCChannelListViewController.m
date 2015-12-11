@@ -10,57 +10,8 @@
 #import "NCYoutubeDataContainer.h"
 #import "NCVideoListViewController.h"
 
-#pragma mark - enum Definition
+#pragma mark - Implementation
 
-/******************************************************************************
- * enum Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * String Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Constant Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Function Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
-
-@interface NCChannelListViewController()
-@end
-
-@interface NCChannelListViewController(CreateMethods)
-@end
-
-@interface NCChannelListViewController(PrivateMethods)
-@end
-
-@interface NCChannelListViewController(PrivateServerCommunications)
-@end
-
-@interface NCChannelListViewController(selectors)
-@end
-
-@interface NCChannelListViewController(IBActions)
-@end
-
-@interface NCChannelListViewController(ProcessMethod)
-@end
-
-
-/******************************************************************************************
- * Implementation
- ******************************************************************************************/
 @implementation NCChannelListViewController
 
 #pragma mark - class life cycle
@@ -78,11 +29,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
--(void)prepareForRelease
-{
-    
 }
 
 -(void)dealloc

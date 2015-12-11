@@ -13,8 +13,6 @@
 #pragma mark - class life cycle
 
 +(NCImageCachingManager*)sharedInstance;
--(void)initialize;
--(void)prepareForRelease;
 
 #pragma mark - operations
 

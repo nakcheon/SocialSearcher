@@ -8,59 +8,15 @@
 
 #import "NCURLManager.h"
 
-#pragma mark - enum Definition
-
-/******************************************************************************
- * enum Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * String Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Constant Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Function Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
-
-@interface NCURLManager()
-@end
-
-@interface NCURLManager(CreateMethods)
-@end
+#pragma mark - Definition
 
 @interface NCURLManager(PrivateMethods)
 +(BOOL)privateCheckDirectoryExistence:(NSString*)path;
 +(BOOL)privateAddSkipBackupAttributeToItemAtURL:(NSURL*)url;
 @end
 
-@interface NCURLManager(PrivateServerCommunications)
-@end
+#pragma mark - Implementation
 
-@interface NCURLManager(selectors)
-@end
-
-@interface NCURLManager(IBActions)
-@end
-
-@interface NCURLManager(ProcessMethod)
-@end
-
-
-/******************************************************************************************
- * Implementation
- ******************************************************************************************/
 @implementation NCURLManager
 
 #pragma mark - base path information

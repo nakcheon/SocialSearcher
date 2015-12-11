@@ -12,38 +12,11 @@
 #import <NSTimeZone-CountryCode/NSTimeZone+CountryCode.h>
 #import "NCYoutubeDataContainer.h"
 
-#pragma mark - enum Definition
-
-/******************************************************************************
- * enum Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * String Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Constant Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Function Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
+#pragma mark - Definition
 
 @interface NCYoutubeDataManager()
 // flags
 @property (assign, nonatomic) BOOL bIsFinish;
-@end
-
-@interface NCYoutubeDataManager(CreateMethods)
 @end
 
 @interface NCYoutubeDataManager(PrivateMethods)
@@ -51,22 +24,8 @@
 -(BOOL)privateInitializeUI;
 @end
 
-@interface NCYoutubeDataManager(PrivateServerCommunications)
-@end
+#pragma mark - Implementation
 
-@interface NCYoutubeDataManager(selectors)
-@end
-
-@interface NCYoutubeDataManager(IBActions)
-@end
-
-@interface NCYoutubeDataManager(ProcessMethod)
-@end
-
-
-/******************************************************************************************
- * Implementation
- ******************************************************************************************/
 @implementation NCYoutubeDataManager
 
 #pragma mark - class life cycle

@@ -9,57 +9,8 @@
 #import "NCImageCachingManager.h"
 #import "NCURLManager.h"
 
-#pragma mark - enum Definition
+#pragma mark - Implementation
 
-/******************************************************************************
- * enum Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * String Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Constant Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Function Definition
- *****************************************************************************/
-
-
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
-
-@interface NCImageCachingManager()
-@end
-
-@interface NCImageCachingManager(CreateMethods)
-@end
-
-@interface NCImageCachingManager(PrivateMethods)
-@end
-
-@interface NCImageCachingManager(PrivateServerCommunications)
-@end
-
-@interface NCImageCachingManager(selectors)
-@end
-
-@interface NCImageCachingManager(IBActions)
-@end
-
-@interface NCImageCachingManager(ProcessMethod)
-@end
-
-
-/******************************************************************************************
- * Implementation
- ******************************************************************************************/
 @implementation NCImageCachingManager
 
 #pragma mark - class life cycle
@@ -70,7 +21,6 @@ static NCImageCachingManager* sharedInstance = nil;
     @synchronized(self){
         if(!sharedInstance) {
             sharedInstance = [[NCImageCachingManager alloc] init];
-            [sharedInstance initialize];
         }
     }
     return sharedInstance;
@@ -85,22 +35,12 @@ static NCImageCachingManager* sharedInstance = nil;
     return self;
 }
 
--(void)prepareForRelease
-{
-    
-}
-
 -(void)dealloc
 {
     DLog(@"NCImageCachingManager::DEALLOC");
 }
 
 #pragma mark - operations
-
--(void)initialize
-{
-    // do nothing
-}
 
 -(void)addFullDataWithKey:(NSString*)key data:(NSData*)data
 {

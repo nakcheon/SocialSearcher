@@ -19,8 +19,6 @@
 @property (nonatomic, retain) NSMutableDictionary* dicYoutubeSearchNextTokenInfo;
 
 +(NCYoutubeDataContainer*)sharedInstance;
--(void)initialize;
--(void)prepareForRelease;
 
 -(void)RemoveYoutubePlayList:(NSString*)channelID;
 -(void)RemoveYoutubeSearchResult:(NSString*)query;

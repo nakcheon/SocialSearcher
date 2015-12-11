@@ -15,13 +15,10 @@
 @property (nonatomic, assign) BOOL bIsLastItem;
 
 -(void)initialize;
--(void)prepareForRelease;
 
 @end
 
-/******************************************************************************
- * Type Definition
- *****************************************************************************/
+#pragma mark - Definition
 
 @interface NCVideoItemCell() <NCYoutubeDataManagerDelegate>
 {
@@ -64,14 +61,3 @@
 -(NSString*)privateParseISO8601Time:(NSString*)duration;
 @end
 
-@interface NCVideoItemCell(PrivateServerCommunications)
-@end
-
-@interface NCVideoItemCell(selectors)
-@end
-
-@interface NCVideoItemCell(IBActions)
-@end
-
-@interface NCVideoItemCell(ProcessMethod)
-@end
