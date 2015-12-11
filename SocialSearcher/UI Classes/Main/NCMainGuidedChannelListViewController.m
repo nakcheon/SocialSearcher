@@ -19,7 +19,7 @@
 
 #pragma mark - class life cycle
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {
@@ -63,7 +63,7 @@
 {
     DLog(@"prepareForSegue");
     
-    if ([[segue identifier] isEqualToString:@"MoveToVideoList"]) {
+    if ([segue.identifier isEqualToString:@"MoveToVideoList"]) {
         // fetch slected data
         NSArray* arraySelected = [_collectionChannelList indexPathsForSelectedItems];
         NSIndexPath* indexPathSelected = arraySelected.firstObject;
@@ -71,7 +71,7 @@
         DLog(@"selected dic=%@", dicInfo);
         
         // set data
-        NCVideoListViewController *vc = [segue destinationViewController];
+        NCVideoListViewController *vc = segue.destinationViewController;
         vc.dicInfo = dicInfo;
     }
 }
@@ -114,7 +114,7 @@
                                             layout:_collectionChannelListLayout
                             sizeForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
             
-            [_collectionChannelListLayout setItemSize:sizeCell];
+            _collectionChannelListLayout.itemSize = sizeCell;
         }
     }
 }
@@ -149,9 +149,9 @@
 {
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     NSString* keyToFetch = [NSTimeZone countryCodeFromLocalizedName];
-    NSArray* arrayList = [dataContainer.dicYoutubeGuideInfoResult objectForKey:keyToFetch];
+    NSArray* arrayList = (dataContainer.dicYoutubeGuideInfoResult)[keyToFetch];
     
-    NSDictionary* dicInfo = [arrayList firstObject];
+    NSDictionary* dicInfo = arrayList.firstObject;
     _defaultChannelID = [dicInfo valueForKeyPath:@"snippet.channelId"];
     
     [_youtubeDataManager reqeustPlayListWithChannelInfo:_defaultChannelID];
@@ -177,12 +177,12 @@
     _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubePlayListResult objectForKey:channelID]];
+    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicYoutubePlayListResult)[channelID]];
     [_collectionChannelList reloadData];
     
     // check load all
-    NSString* savedNextToken = [dataContainer.dicYoutubePlayListNextTokenInfo objectForKey:channelID];
-    if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
+    NSString* savedNextToken = (dataContainer.dicYoutubePlayListNextTokenInfo)[channelID];
+    if (_arrayDataList.count < (DEFAULT_MAXRESULTS).intValue && !savedNextToken) {
         _bAllListLoaded = YES;
     }
 }
@@ -197,7 +197,7 @@
         
         // check load all
         NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-        NSString* savedNextToken = [dataContainer.dicYoutubePlayListNextTokenInfo objectForKey:channelID];
+        NSString* savedNextToken = (dataContainer.dicYoutubePlayListNextTokenInfo)[channelID];
         if (!savedNextToken) {
             strongSelf.bAllListLoaded = YES;
         }

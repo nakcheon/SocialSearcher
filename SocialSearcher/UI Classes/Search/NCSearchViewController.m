@@ -47,7 +47,7 @@
 
 #pragma mark - class life cycle
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {
@@ -92,41 +92,41 @@
 {
     DLog(@"prepareForSegue");
     
-    if ([[segue identifier] isEqualToString:@"ShowSearchViewFromSearchView"]) {
+    if ([segue.identifier isEqualToString:@"ShowSearchViewFromSearchView"]) {
         // fetch slected data
-        NSIndexPath* indexPathSelected = [_videoSearchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSIndexPath* indexPathSelected = (_videoSearchDisplayController.searchResultsTableView).indexPathForSelectedRow;
         NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
         DLog(@"selected dic=%@", dicInfo);
         
         // set data
-        NCVideoPlayerViewController *vc = [segue destinationViewController];
+        NCVideoPlayerViewController *vc = segue.destinationViewController;
         vc.dicInfo = dicInfo;
     }
-    else if ([[segue identifier] isEqualToString:@"ShowVideoListViewFromSearchView"]) {
+    else if ([segue.identifier isEqualToString:@"ShowVideoListViewFromSearchView"]) {
         // fetch slected data
-        NSIndexPath* indexPathSelected = [_videoSearchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSIndexPath* indexPathSelected = (_videoSearchDisplayController.searchResultsTableView).indexPathForSelectedRow;
         NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
         DLog(@"selected dic=%@", dicInfo);
         
         // set data
-        NCVideoListViewController *vc = [segue destinationViewController];
+        NCVideoListViewController *vc = segue.destinationViewController;
         vc.dicInfo = dicInfo;
     }
-    else if ([[segue identifier] isEqualToString:@"ShowChannelViewFromSearchView"]) {
+    else if ([segue.identifier isEqualToString:@"ShowChannelViewFromSearchView"]) {
         // fetch slected data
-        NSIndexPath* indexPathSelected = [_videoSearchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        NSIndexPath* indexPathSelected = (_videoSearchDisplayController.searchResultsTableView).indexPathForSelectedRow;
         NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
         DLog(@"selected dic=%@", dicInfo);
         
         // set data
-        NCChannelListViewController *vc = [segue destinationViewController];
+        NCChannelListViewController *vc = segue.destinationViewController;
         vc.dicInfo = dicInfo;
     }
 }
 
 -(void)viewDidLayoutSubviews
 {
-    if (![_searchBar isFocused] && !_bIsSearchBarInitiallyFocused) {
+    if (!_searchBar.focused && !_bIsSearchBarInitiallyFocused) {
         _bIsSearchBarInitiallyFocused = YES;
         [_searchBar becomeFirstResponder];
     }
@@ -173,12 +173,12 @@
     _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubeSearchResult objectForKey:query]];
+    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicYoutubeSearchResult)[query]];
     [_videoSearchDisplayController.searchResultsTableView reloadData];
     
     // check load all
-    NSString* savedNextToken = [dataContainer.dicYoutubeSearchNextTokenInfo objectForKey:query];
-    if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
+    NSString* savedNextToken = (dataContainer.dicYoutubeSearchNextTokenInfo)[query];
+    if (_arrayDataList.count < (DEFAULT_MAXRESULTS).intValue && !savedNextToken) {
         _bAllListLoaded = YES;
     }
 }
@@ -193,7 +193,7 @@
         
         // check load all
         NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-        NSString* savedNextToken = [dataContainer.dicYoutubeSearchNextTokenInfo objectForKey:query];
+        NSString* savedNextToken = (dataContainer.dicYoutubeSearchNextTokenInfo)[query];
         if (!savedNextToken) {
             strongSelf.bAllListLoaded = YES;
         }

@@ -26,10 +26,10 @@
 
 +(UIColor*)colorWithHexString:(NSString*)hex
 {
-    NSString* cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    NSString* cString = [hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].uppercaseString;
     
     // String should be 6 or 8 characters
-    if ([cString length] < 6) {
+    if (cString.length < 6) {
         return [UIColor grayColor];
     }
     
@@ -43,7 +43,7 @@
         cString = [cString substringFromIndex:1];
     }
     
-    if ([cString length] != 6) {
+    if (cString.length != 6) {
         return  [UIColor grayColor];
     }
     
@@ -134,7 +134,7 @@
 +(UIImage*)privateCropImage:(UIImage*)originalImage
                      bounds:(CGRect)bounds
 {
-    CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], bounds);
+    CGImageRef imageRef = CGImageCreateWithImageInRect(originalImage.CGImage, bounds);
     UIImage* croppedImage = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     return croppedImage;
@@ -144,13 +144,13 @@
 
 +(NSString*)convertAWSTime:(NSString*)time
 {
-    NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
+    NSTimeInterval timeZoneSeconds = [NSTimeZone localTimeZone].secondsFromGMT;
     
     // convert server date
     NSDateFormatter* serverFormatter = [[NSDateFormatter alloc] init];
-    [serverFormatter setTimeZone:[NSTimeZone localTimeZone]];
-    [serverFormatter setLocale:[NSLocale currentLocale]];
-    [serverFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.000'Z'"];
+    serverFormatter.timeZone = [NSTimeZone localTimeZone];
+    serverFormatter.locale = [NSLocale currentLocale];
+    serverFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.000'Z'";
     
     // server's Date
     NSDate* serverDate = [serverFormatter dateFromString:time];
@@ -179,15 +179,15 @@
     NSInteger year = components.year;
     
     NSDateFormatter* displayFormatter = [[NSDateFormatter alloc] init];
-    [displayFormatter setTimeZone: [NSTimeZone localTimeZone]];
-    [displayFormatter setLocale: [NSLocale currentLocale]];
-    [displayFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.000'Z'"];
+    displayFormatter.timeZone = [NSTimeZone localTimeZone];
+    displayFormatter.locale = [NSLocale currentLocale];
+    displayFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.000'Z'";
     NSString* strServerDate = [displayFormatter stringFromDate: serverDate];
     
     displayFormatter = [[NSDateFormatter alloc] init];
-    [displayFormatter setTimeZone:[NSTimeZone localTimeZone]];
-    [displayFormatter setLocale: [NSLocale currentLocale]];
-    [displayFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.000'Z'"];
+    displayFormatter.timeZone = [NSTimeZone localTimeZone];
+    displayFormatter.locale = [NSLocale currentLocale];
+    displayFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.000'Z'";
     
     NSDate* serverDisplayDate = [displayFormatter dateFromString: strServerDate];
     
@@ -225,12 +225,12 @@
         // 1 day ~ 48 hours
         if (day <= 1 && month <= 0 && year <= 0) {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
-            [dateFormatter setLocale: [NSLocale currentLocale]];
-            [dateFormatter setDateFormat:@"h:mm"];
+            dateFormatter.timeZone = [NSTimeZone localTimeZone];
+            dateFormatter.locale = [NSLocale currentLocale];
+            dateFormatter.dateFormat = @"h:mm";
             NSString* timeString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]];
-            [dateFormatter setDateFormat:@"a"];
-            NSString* periodString = [[dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]] lowercaseString];
+            dateFormatter.dateFormat = @"a";
+            NSString* periodString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]].lowercaseString;
             
             return [NSString stringWithFormat: @"%@ %@%@", NSLocalizedString(@"yesterday at", @""), timeString, periodString];
         }
@@ -238,28 +238,28 @@
             // 48 hours ~ 1 year before a day
             if (day <= 365) {
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
-                [dateFormatter setLocale: [NSLocale currentLocale]];
-                [dateFormatter setDateFormat:@"MMMM d"];
+                dateFormatter.timeZone = [NSTimeZone localTimeZone];
+                dateFormatter.locale = [NSLocale currentLocale];
+                dateFormatter.dateFormat = @"MMMM d";
                 NSString *monthDayString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]];
-                [dateFormatter setDateFormat:@"h:mm"];
+                dateFormatter.dateFormat = @"h:mm";
                 NSString *timeString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]];
-                [dateFormatter setDateFormat:@"a"];
-                NSString *periodString = [[dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]] lowercaseString];
+                dateFormatter.dateFormat = @"a";
+                NSString *periodString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]].lowercaseString;
                 
                 return [NSString stringWithFormat: @"%@%@ %@%@", monthDayString, NSLocalizedString(@" at", @""), timeString, periodString];
             }
             else {
                 // 1 year ~
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setTimeZone: [NSTimeZone localTimeZone]];
-                [dateFormatter setLocale: [NSLocale currentLocale]];
-                [dateFormatter setDateFormat:@"MMMM d, y"];
+                dateFormatter.timeZone = [NSTimeZone localTimeZone];
+                dateFormatter.locale = [NSLocale currentLocale];
+                dateFormatter.dateFormat = @"MMMM d, y";
                 NSString *monthDayYearString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]];
-                [dateFormatter setDateFormat:@"h:mm"];
+                dateFormatter.dateFormat = @"h:mm";
                 NSString *timeString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]];
-                [dateFormatter setDateFormat:@"a"];
-                NSString *periodString = [[dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]] lowercaseString];
+                dateFormatter.dateFormat = @"a";
+                NSString *periodString = [dateFormatter stringFromDate:[serverDisplayDate dateByAddingTimeInterval:timeZoneSeconds]].lowercaseString;
                 
                 return [NSString stringWithFormat: @"%@%@ %@%@", monthDayYearString, NSLocalizedString(@" at", @""), timeString, periodString];
             } // if (day <= 365) {

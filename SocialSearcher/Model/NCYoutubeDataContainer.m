@@ -25,7 +25,7 @@ static NCYoutubeDataContainer* sharedInstance = nil;
     return sharedInstance;
 }
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {

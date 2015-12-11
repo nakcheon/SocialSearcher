@@ -50,7 +50,7 @@
 
 #pragma mark - class life cycle
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {
@@ -96,14 +96,14 @@
 {
     DLog(@"prepareForSegue");
     
-    if ([[segue identifier] isEqualToString:@"ShowVideoPlayer"]) {
+    if ([segue.identifier isEqualToString:@"ShowVideoPlayer"]) {
         // fetch slected data
-        NSIndexPath* indexPathSelected = [_tableVideoList indexPathForSelectedRow];
+        NSIndexPath* indexPathSelected = _tableVideoList.indexPathForSelectedRow;
         NSDictionary* dicInfo = _arrayDataList[indexPathSelected.row];
         DLog(@"selected dic=%@", dicInfo);
         
         // set data
-        NCVideoPlayerViewController *vc = [segue destinationViewController];
+        NCVideoPlayerViewController *vc = segue.destinationViewController;
         vc.dicInfo = dicInfo;
     }
 }
@@ -222,12 +222,12 @@
     _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:[dataContainer.dicYoutubeVideoListResult objectForKey:_defaultPlayListID]];
+    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicYoutubeVideoListResult)[_defaultPlayListID]];
     [_tableVideoList reloadData];
     
     // check load all
-    NSString* savedNextToken = [dataContainer.dicYoutubeVideoListNextTokenInfo objectForKey:_defaultPlayListID];
-    if (_arrayDataList.count < [DEFAULT_MAXRESULTS intValue] && !savedNextToken) {
+    NSString* savedNextToken = (dataContainer.dicYoutubeVideoListNextTokenInfo)[_defaultPlayListID];
+    if (_arrayDataList.count < (DEFAULT_MAXRESULTS).intValue && !savedNextToken) {
         _bAllListLoaded = YES;
     }
 }
@@ -242,7 +242,7 @@
         
         // check load all
         NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-        NSString* savedNextToken = [dataContainer.dicYoutubeVideoListNextTokenInfo objectForKey:_defaultPlayListID];
+        NSString* savedNextToken = (dataContainer.dicYoutubeVideoListNextTokenInfo)[_defaultPlayListID];
         if (!savedNextToken) {
             strongSelf.bAllListLoaded = YES;
         }

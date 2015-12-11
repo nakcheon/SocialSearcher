@@ -24,7 +24,7 @@
 +(NSString*)libraryCachesPath
 {
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString* basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString* basePath = (paths.count > 0) ? paths[0] : nil;
     return basePath;
 }
 
@@ -92,7 +92,7 @@
 +(BOOL)privateAddSkipBackupAttributeToItemAtURL:(NSURL*)url
 {
     NSError* error = nil;
-    BOOL success = [url setResourceValue:[NSNumber numberWithBool: YES]
+    BOOL success = [url setResourceValue:@YES
                                   forKey:NSURLIsExcludedFromBackupKey
                                    error:&error];
     if (!success) {

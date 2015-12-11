@@ -18,7 +18,7 @@
 
 #pragma mark - class life cycle
 
--(id)initWithCoder:(NSCoder *)aDecoder
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -252,7 +252,7 @@
     //Get Time part from ISO 8601 formatted duration http://en.wikipedia.org/wiki/ISO_8601#Durations
     duration = [duration substringFromIndex:[duration rangeOfString:@"T"].location];
     
-    while ([duration length] > 1) { //only one letter remains after parsing
+    while (duration.length > 1) { //only one letter remains after parsing
         duration = [duration substringFromIndex:1];
         
         NSScanner *scanner = [[NSScanner alloc] initWithString:duration];
@@ -265,13 +265,13 @@
         duration = [duration substringFromIndex:rangeOfDurationPart.location + rangeOfDurationPart.length];
         
         if ([[duration substringToIndex:1] isEqualToString:@"H"]) {
-            hours = [durationPart intValue];
+            hours = durationPart.intValue;
         }
         if ([[duration substringToIndex:1] isEqualToString:@"M"]) {
-            minutes = [durationPart intValue];
+            minutes = durationPart.intValue;
         }
         if ([[duration substringToIndex:1] isEqualToString:@"S"]) {
-            seconds = [durationPart intValue];
+            seconds = durationPart.intValue;
         }
     }
     
@@ -334,7 +334,7 @@
                 strongSelf.requestThumbnailImage = nil;
                 return;
             }
-            [self requestThumbnailImage];
+            [self privateRequestThumbnailImage];
         });
         strongSelf = nil;
     };
