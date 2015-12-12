@@ -222,11 +222,11 @@
     _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicYoutubeVideoListResult)[_defaultPlayListID]];
+    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicDataYoutubeVideoListResult)[_defaultPlayListID]];
     [_tableVideoList reloadData];
     
     // check load all
-    NSString* savedNextToken = (dataContainer.dicYoutubeVideoListNextTokenInfo)[_defaultPlayListID];
+    NSString* savedNextToken = (dataContainer.dicDataYoutubeVideoListNextTokenInfo)[_defaultPlayListID];
     if (_arrayDataList.count < (DEFAULT_MAXRESULTS).intValue && !savedNextToken) {
         _bAllListLoaded = YES;
     }
@@ -242,7 +242,7 @@
         
         // check load all
         NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-        NSString* savedNextToken = (dataContainer.dicYoutubeVideoListNextTokenInfo)[_defaultPlayListID];
+        NSString* savedNextToken = (dataContainer.dicDataYoutubeVideoListNextTokenInfo)[_defaultPlayListID];
         if (!savedNextToken) {
             strongSelf.bAllListLoaded = YES;
         }

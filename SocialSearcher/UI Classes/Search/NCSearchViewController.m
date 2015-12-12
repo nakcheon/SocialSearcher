@@ -173,11 +173,11 @@
     _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicYoutubeSearchResult)[query]];
+    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicDataYoutubeSearchResult)[query]];
     [_videoSearchDisplayController.searchResultsTableView reloadData];
     
     // check load all
-    NSString* savedNextToken = (dataContainer.dicYoutubeSearchNextTokenInfo)[query];
+    NSString* savedNextToken = (dataContainer.dicDataYoutubeSearchNextTokenInfo)[query];
     if (_arrayDataList.count < (DEFAULT_MAXRESULTS).intValue && !savedNextToken) {
         _bAllListLoaded = YES;
     }
@@ -193,7 +193,7 @@
         
         // check load all
         NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-        NSString* savedNextToken = (dataContainer.dicYoutubeSearchNextTokenInfo)[query];
+        NSString* savedNextToken = (dataContainer.dicDataYoutubeSearchNextTokenInfo)[query];
         if (!savedNextToken) {
             strongSelf.bAllListLoaded = YES;
         }

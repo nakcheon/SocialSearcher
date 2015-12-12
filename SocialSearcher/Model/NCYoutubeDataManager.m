@@ -84,10 +84,10 @@
             DLog(@"Get reqeustGuideCategoriesList Success");
             
             NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-            if (!dataContainer.dicYoutubeGuideInfoResult) {
-                dataContainer.dicYoutubeGuideInfoResult = [[NSMutableDictionary alloc] init];
+            if (!dataContainer.dicDataYoutubeGuideInfoResult) {
+                dataContainer.dicDataYoutubeGuideInfoResult = [[NSMutableDictionary alloc] init];
             }
-            (dataContainer.dicYoutubeGuideInfoResult)[regionCode] = arrayList;
+            [dataContainer addYoutubeGuideInfoResult:arrayList forKey:regionCode];
             [strongSelf.delegate reqeustGuideCategoriesListFinished];
         }
         else {
@@ -148,7 +148,7 @@
     // check saved next token
     NSString* strFullURL = nil;
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    NSString* savedNextToken = (dataContainer.dicYoutubePlayListNextTokenInfo)[channelID];
+    NSString* savedNextToken = (dataContainer.dicDataYoutubePlayListNextTokenInfo)[channelID];
     if (savedNextToken) {
         strFullURL = [NSString stringWithFormat:YOUTUBE_PLAY_MORE_LIST, language, channelID, DEFAULT_MAXRESULTS, savedNextToken, GOOGLE_API_KEY];
     }
@@ -159,7 +159,7 @@
     
     // check loaded all list
     {
-        NSArray* arrayOld = (dataContainer.dicYoutubePlayListResult)[channelID];
+        NSArray* arrayOld = (dataContainer.dicDataYoutubePlayListResult)[channelID];
         if (arrayOld.count > 0 && !savedNextToken) {
             [_delegate reqeustPlayListWithChannelInfoNoData:channelID];
             return NO;
@@ -189,30 +189,30 @@
         if (arrayList.count > 0) {
             DLog(@"Get reqeustPlayListWithChannelInfo Success");
             
-            if (!dataContainer.dicYoutubePlayListResult) {
-                dataContainer.dicYoutubePlayListResult = [[NSMutableDictionary alloc] init];
+            if (!dataContainer.dicDataYoutubePlayListResult) {
+                dataContainer.dicDataYoutubePlayListResult = [[NSMutableDictionary alloc] init];
             }
             
             // check saved next token
             if (savedNextToken && ![savedNextToken isEqualToString:@""]) {
-                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:(dataContainer.dicYoutubePlayListResult)[channelID]];
+                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:(dataContainer.dicDataYoutubePlayListResult)[channelID]];
                 [arrayOld addObjectsFromArray:arrayList];
-                (dataContainer.dicYoutubePlayListResult)[channelID] = arrayOld;
+                [dataContainer addYoutubePlayListResult:arrayOld forKey:channelID];
             }
             else {
-                (dataContainer.dicYoutubePlayListResult)[channelID] = arrayList;
+                [dataContainer addYoutubePlayListResult:arrayList forKey:channelID];
             }
             
             // save next token info
             {
-                if (!dataContainer.dicYoutubePlayListNextTokenInfo) {
-                    dataContainer.dicYoutubePlayListNextTokenInfo = [[NSMutableDictionary alloc] init];
+                if (!dataContainer.dicDataYoutubePlayListNextTokenInfo) {
+                    dataContainer.dicDataYoutubePlayListNextTokenInfo = [[NSMutableDictionary alloc] init];
                 }
                 if (nextToken && ![nextToken isEqualToString:@""]) {
-                    (dataContainer.dicYoutubePlayListNextTokenInfo)[channelID] = nextToken;
+                    [dataContainer addYoutubePlayListNextTokenInfo:nextToken forKey:channelID];
                 }
                 else {
-                    [dataContainer.dicYoutubePlayListNextTokenInfo removeObjectForKey:channelID];
+                    [dataContainer removeYoutubePlayListNextTokenInfoForKey:channelID];
                 }
             }
             
@@ -267,7 +267,7 @@
     // check saved next token
     NSString* strFullURL = nil;
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    NSString* savedNextToken = (dataContainer.dicYoutubeVideoListNextTokenInfo)[playListID];
+    NSString* savedNextToken = (dataContainer.dicDataYoutubeVideoListNextTokenInfo)[playListID];
     if (savedNextToken) {
         strFullURL = [NSString stringWithFormat:YOUTUBE_VIDEO_MORE_LIST, playListID, DEFAULT_MAXRESULTS, savedNextToken, GOOGLE_API_KEY];
     }
@@ -278,7 +278,7 @@
     
     // check loaded all list
     {
-        NSArray* arrayOld = (dataContainer.dicYoutubeVideoListResult)[playListID];
+        NSArray* arrayOld = (dataContainer.dicDataYoutubeVideoListResult)[playListID];
         if (arrayOld.count > 0 && !savedNextToken) {
             [_delegate reqeustVideoListWithPlayListInfoNoData:playListID];
             return NO;
@@ -308,30 +308,30 @@
         if (arrayList.count > 0) {
             DLog(@"Get reqeustPlayListWithChannelInfo Success");
             
-            if (!dataContainer.dicYoutubeVideoListResult) {
-                dataContainer.dicYoutubeVideoListResult = [[NSMutableDictionary alloc] init];
+            if (!dataContainer.dicDataYoutubeVideoListResult) {
+                dataContainer.dicDataYoutubeVideoListResult = [[NSMutableDictionary alloc] init];
             }
             
             // check saved next token
             if (savedNextToken && ![savedNextToken isEqualToString:@""]) {
-                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:(dataContainer.dicYoutubeVideoListResult)[playListID]];
+                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:(dataContainer.dicDataYoutubeVideoListResult)[playListID]];
                 [arrayOld addObjectsFromArray:arrayList];
-                (dataContainer.dicYoutubeVideoListResult)[playListID] = arrayOld;
+                [dataContainer addYoutubeVideoListResult:arrayOld forKey:playListID];
             }
             else {
-                (dataContainer.dicYoutubeVideoListResult)[playListID] = arrayList;
+                [dataContainer addYoutubeVideoListResult:arrayList forKey:playListID];
             }
             
             // save next token info
             {
-                if (!dataContainer.dicYoutubeVideoListNextTokenInfo) {
-                    dataContainer.dicYoutubeVideoListNextTokenInfo = [[NSMutableDictionary alloc] init];
+                if (!dataContainer.dicDataYoutubeVideoListNextTokenInfo) {
+                    dataContainer.dicDataYoutubeVideoListNextTokenInfo = [[NSMutableDictionary alloc] init];
                 }
                 if (nextToken && ![nextToken isEqualToString:@""]) {
-                    (dataContainer.dicYoutubeVideoListNextTokenInfo)[playListID] = nextToken;
+                    [dataContainer addYoutubeVideoListNextTokenInfo:nextToken forKey:playListID];
                 }
                 else {
-                    [dataContainer.dicYoutubeVideoListNextTokenInfo removeObjectForKey:playListID];
+                    [dataContainer removeYoutubeVideoListNextTokenInfoForKey:playListID];
                 }
             }
             
@@ -406,10 +406,10 @@
             DLog(@"Get reqeustVideoDetailInfo Success");
             
             NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-            if (!dataContainer.dicYoutubeVideoDetailResult) {
-                dataContainer.dicYoutubeVideoDetailResult = [[NSMutableDictionary alloc] init];
+            if (!dataContainer.dicDataYoutubeVideoDetailResult) {
+                dataContainer.dicDataYoutubeVideoDetailResult = [[NSMutableDictionary alloc] init];
             }
-            (dataContainer.dicYoutubeVideoDetailResult)[videoID] = dicDetail;
+            [dataContainer addYoutubeVideoDetailResult:dicDetail forKey:videoID];
             [strongSelf.delegate reqeustVideoDetailInfoFinished:videoID];
         }
         else {
@@ -459,7 +459,7 @@
     // check saved next token
     NSString* strFullURL = nil;
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    NSString* savedNextToken = (dataContainer.dicYoutubeSearchNextTokenInfo)[query];
+    NSString* savedNextToken = (dataContainer.dicDataYoutubeSearchNextTokenInfo)[query];
     if (savedNextToken) {
         strFullURL = [NSString stringWithFormat:YOUTUBE_SEARCH_MORE_LIST, query, DEFAULT_MAXRESULTS, savedNextToken, GOOGLE_API_KEY];
     }
@@ -470,7 +470,7 @@
     
     // check loaded all list
     {
-        NSArray* arrayOld = (dataContainer.dicYoutubeSearchResult)[query];
+        NSArray* arrayOld = (dataContainer.dicDataYoutubeSearchResult)[query];
         if (arrayOld.count > 0 && !savedNextToken) {
             [_delegate reqeustVideoListWithPlayListInfoNoData:query];
             return NO;
@@ -500,30 +500,30 @@
         if (arrayList.count > 0) {
             DLog(@"Get reqeustSearch Success");
             
-            if (!dataContainer.dicYoutubeSearchResult) {
-                dataContainer.dicYoutubeSearchResult = [[NSMutableDictionary alloc] init];
+            if (!dataContainer.dicDataYoutubeSearchResult) {
+                dataContainer.dicDataYoutubeSearchResult = [[NSMutableDictionary alloc] init];
             }
             
             // check saved next token
             if (savedNextToken && ![savedNextToken isEqualToString:@""]) {
-                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:(dataContainer.dicYoutubeSearchResult)[query]];
+                NSMutableArray* arrayOld = [NSMutableArray arrayWithArray:(dataContainer.dicDataYoutubeSearchResult)[query]];
                 [arrayOld addObjectsFromArray:arrayList];
-                (dataContainer.dicYoutubeSearchResult)[query] = arrayOld;
+                [dataContainer addYoutubeSearchResult:arrayOld forKey:query];
             }
             else {
-                (dataContainer.dicYoutubeSearchResult)[query] = arrayList;
+                [dataContainer addYoutubeSearchResult:arrayList forKey:query];
             }
             
             // save next token info
             {
-                if (!dataContainer.dicYoutubeSearchNextTokenInfo) {
-                    dataContainer.dicYoutubeSearchNextTokenInfo = [[NSMutableDictionary alloc] init];
+                if (!dataContainer.dicDataYoutubeSearchNextTokenInfo) {
+                    dataContainer.dicDataYoutubeSearchNextTokenInfo = [[NSMutableDictionary alloc] init];
                 }
                 if (nextToken && ![nextToken isEqualToString:@""]) {
-                    (dataContainer.dicYoutubeSearchNextTokenInfo)[query] = nextToken;
+                    [dataContainer addYoutubeSearchNextTokenInfo:nextToken forKey:query];
                 }
                 else {
-                    [dataContainer.dicYoutubeSearchNextTokenInfo removeObjectForKey:query];
+                    [dataContainer removeYoutubeSearchNextTokenInfoForKey:query];
                 }
             }
             

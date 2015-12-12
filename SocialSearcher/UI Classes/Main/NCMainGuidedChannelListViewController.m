@@ -149,7 +149,7 @@
 {
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
     NSString* keyToFetch = [NSTimeZone countryCodeFromLocalizedName];
-    NSArray* arrayList = (dataContainer.dicYoutubeGuideInfoResult)[keyToFetch];
+    NSArray* arrayList = (dataContainer.dicDataYoutubeGuideInfoResult)[keyToFetch];
     
     NSDictionary* dicInfo = arrayList.firstObject;
     _defaultChannelID = [dicInfo valueForKeyPath:@"snippet.channelId"];
@@ -177,11 +177,11 @@
     _bAllListLoaded = NO;
     
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicYoutubePlayListResult)[channelID]];
+    _arrayDataList = [NSArray arrayWithArray:(dataContainer.dicDataYoutubePlayListResult)[channelID]];
     [_collectionChannelList reloadData];
     
     // check load all
-    NSString* savedNextToken = (dataContainer.dicYoutubePlayListNextTokenInfo)[channelID];
+    NSString* savedNextToken = (dataContainer.dicDataYoutubePlayListNextTokenInfo)[channelID];
     if (_arrayDataList.count < (DEFAULT_MAXRESULTS).intValue && !savedNextToken) {
         _bAllListLoaded = YES;
     }
@@ -197,7 +197,7 @@
         
         // check load all
         NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-        NSString* savedNextToken = (dataContainer.dicYoutubePlayListNextTokenInfo)[channelID];
+        NSString* savedNextToken = (dataContainer.dicDataYoutubePlayListNextTokenInfo)[channelID];
         if (!savedNextToken) {
             strongSelf.bAllListLoaded = YES;
         }

@@ -366,7 +366,7 @@
     
     // get data
     NCYoutubeDataContainer* dataContainer = [NCYoutubeDataContainer sharedInstance];
-    NSDictionary* dicDetail = dataContainer.dicYoutubeVideoDetailResult[videoID];
+    NSDictionary* dicDetail = dataContainer.dicDataYoutubeVideoDetailResult[videoID];
     NSString* strDuration = [dicDetail valueForKeyPath:@"contentDetails.duration"];
     _strFormattedDuration = [self privateParseISO8601Time:strDuration];
     
