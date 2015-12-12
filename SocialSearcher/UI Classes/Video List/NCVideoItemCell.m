@@ -245,7 +245,7 @@
 
 -(NSString*)privateParseISO8601Time:(NSString*)duration
 {
-    NSInteger hours = 0;
+    //NSInteger hours = 0;
     NSInteger minutes = 0;
     NSInteger seconds = 0;
     
@@ -264,9 +264,9 @@
         
         duration = [duration substringFromIndex:rangeOfDurationPart.location + rangeOfDurationPart.length];
         
-        if ([[duration substringToIndex:1] isEqualToString:@"H"]) {
-            hours = durationPart.intValue;
-        }
+        //if ([[duration substringToIndex:1] isEqualToString:@"H"]) {
+        //    hours = durationPart.intValue;
+        //}
         if ([[duration substringToIndex:1] isEqualToString:@"M"]) {
             minutes = durationPart.intValue;
         }
