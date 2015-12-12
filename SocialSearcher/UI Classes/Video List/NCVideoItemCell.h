@@ -11,8 +11,8 @@
 #import <AFNetworking/AFHTTPRequestOperation.h>
 
 @interface NCVideoItemCell : UITableViewCell
-@property (nonatomic, retain) NSDictionary* dicInfo;
-@property (nonatomic, assign) BOOL bIsLastItem;
+@property (nonatomic, strong) NSDictionary* dicInfo;
+@property BOOL bIsLastItem;
 
 -(void)initialize;
 
@@ -41,11 +41,11 @@
 @property (strong, nonatomic) IBOutlet UIView *viewSeperator;
 // datas
 @property (strong, nonatomic) AFHTTPRequestOperation* requestThumbnailImage;
-@property (assign, nonatomic) int nRetryCount;
 @property (copy, nonatomic) NSString* strThumbnailUrl;
 @property (copy, nonatomic) NSString* strTitle;
 // flags
-@property (assign, nonatomic) BOOL bIsFinish;
+@property int nRetryCount;
+@property BOOL bIsFinish;
 @end
 
 @interface NCVideoItemCell(CreateMethods)

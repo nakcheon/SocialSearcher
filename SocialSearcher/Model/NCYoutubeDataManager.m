@@ -16,7 +16,7 @@
 
 @interface NCYoutubeDataManager()
 // flags
-@property (assign, nonatomic) BOOL bIsFinish;
+@property BOOL bIsFinish;
 @end
 
 #pragma mark - Implementation

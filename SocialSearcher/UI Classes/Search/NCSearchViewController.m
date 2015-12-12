@@ -31,8 +31,8 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *videoSearchDisplayController;
 // load more
-@property (assign, nonatomic) BOOL bNextRequestSent;
-@property (assign, nonatomic) BOOL bAllListLoaded;
+@property BOOL bNextRequestSent;
+@property BOOL bAllListLoaded;
 @end
 
 @interface NCSearchViewController(PrivateMethods)

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NCVideoPlayerViewController : UIViewController
-@property (nonatomic, retain) NSDictionary* dicInfo;
+@property (nonatomic, strong) NSDictionary* dicInfo;
 
 @end

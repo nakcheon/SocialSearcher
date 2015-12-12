@@ -31,8 +31,8 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionChannelList;
 @property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionChannelListLayout;
 // load more
-@property (assign, nonatomic) BOOL bNextRequestSent;
-@property (assign, nonatomic) BOOL bAllListLoaded;
+@property BOOL bNextRequestSent;
+@property BOOL bAllListLoaded;
 @end
 
 @interface NCMainGuidedChannelListViewController(CreateMethods)

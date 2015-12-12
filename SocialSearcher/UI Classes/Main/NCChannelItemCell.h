@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NCChannelItemCell : UICollectionViewCell
-@property (nonatomic, retain) NSDictionary* dicInfo;
+@property (nonatomic, strong) NSDictionary* dicInfo;
 
 -(void)initialize;
 

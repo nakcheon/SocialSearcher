@@ -9,7 +9,7 @@
 #import "NCVideoItemCell.h"
 
 @interface NCSearchResultCell : NCVideoItemCell
-@property (nonatomic, readonly) BOOL bIsList;
-@property (nonatomic, readonly) BOOL bIsChannel;
+@property (readonly) BOOL bIsList;
+@property (readonly) BOOL bIsChannel;
 
 @end

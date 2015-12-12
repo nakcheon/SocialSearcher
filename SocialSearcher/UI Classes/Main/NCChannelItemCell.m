@@ -20,11 +20,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 // datas
 @property (strong, nonatomic) AFHTTPRequestOperation* requestThumbnailImage;
-@property (assign, nonatomic) int nRetryCount;
 @property (copy, nonatomic) NSString* strThumbnailUrl;
 @property (copy, nonatomic) NSString* strTitle;
 // flags
-@property (assign, nonatomic) BOOL bIsFinish;
+@property int nRetryCount;
+@property BOOL bIsFinish;
 @end
 
 @interface NCChannelItemCell(CreateMethods)

@@ -9,6 +9,6 @@
 #import "NCMainGuidedChannelListViewController.h"
 
 @interface NCChannelListViewController : NCMainGuidedChannelListViewController
-@property (nonatomic, retain) NSDictionary* dicInfo;
+@property (nonatomic, strong) NSDictionary* dicInfo;
 
 @end

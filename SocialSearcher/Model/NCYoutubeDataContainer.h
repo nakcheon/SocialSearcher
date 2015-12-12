@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface NCYoutubeDataContainer : NSObject
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubeGuideInfoResult;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubePlayListResult;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubePlayListNextTokenInfo;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubeVideoListResult;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubeVideoListNextTokenInfo;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubeVideoDetailResult;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubeSearchResult;
-@property (nonatomic, retain) NSMutableDictionary* dicYoutubeSearchNextTokenInfo;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubeGuideInfoResult;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubePlayListResult;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubePlayListNextTokenInfo;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubeVideoListResult;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubeVideoListNextTokenInfo;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubeVideoDetailResult;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubeSearchResult;
+@property (nonatomic, strong) NSMutableDictionary* dicYoutubeSearchNextTokenInfo;
 
 +(NCYoutubeDataContainer*)sharedInstance;
 
