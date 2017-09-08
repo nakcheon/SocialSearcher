@@ -1,0 +1,6 @@
+framework module NSTimeZone_CountryCode {
+  umbrella header "NSTimeZone-CountryCode-umbrella.h"
+
+  export *
+  module * { export * }
+}

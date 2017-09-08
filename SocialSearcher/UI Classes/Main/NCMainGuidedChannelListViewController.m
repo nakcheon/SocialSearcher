@@ -9,7 +9,7 @@
 #import "NCMainGuidedChannelListViewController.h"
 #import "NCChannelItemCell.h"
 #import "NCYoutubeDataContainer.h"
-#import <NSTimeZone-CountryCode/NSTimeZone+CountryCode.h>
+#import <NSTimeZone_CountryCode/NSTimeZone-CountryCode-umbrella.h>
 #import "NCVideoListViewController.h"
 #import "RequestDefine.h"
 

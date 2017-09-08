@@ -25,12 +25,12 @@
         if ([lastComponent isKindOfClass:[NSString class]]) {
             NSString *lastString = lastComponent;
             NSRange whitespaceRange = [lastString rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
-            
-            NSRange closingParenthesesRange = [lastString rangeOfString:@")"];
-            if (closingParenthesesRange.location != NSNotFound) {
-                lastString = [lastString substringToIndex:closingParenthesesRange.location];
+            if (whitespaceRange.location == NSNotFound) {
+                return lastComponent;
             }
             
+            NSRange closingParenthesesRange = [lastString rangeOfString:@")"];
+            lastString = [lastString substringToIndex:closingParenthesesRange.location];
             
             // We found a space or more than two characters, it means it's not a country code, it's a two words name
             if (whitespaceRange.location != NSNotFound || [lastString length] > 2) {
@@ -39,10 +39,8 @@
                     NSString *firstString = firstComponent;
                     countryCode = [firstString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 }
-            }
-            else {
+            } else
                 countryCode = lastString;
-            }
         }
     }
     

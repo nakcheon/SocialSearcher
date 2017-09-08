@@ -7,7 +7,7 @@
 //
 
 #import "NCChannelItemCell.h"
-#import <AFNetworking/AFHTTPRequestOperation.h>
+#import <AFNetworking/AFNetworking.h>
 #import "NCUIConstantsManager.h"
 #import "NCURLManager.h"
 #import "NCImageCachingManager.h"

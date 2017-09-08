@@ -10,10 +10,8 @@
 #endif
 #endif
 
-#ifndef TARGET_OS_IOS
-  #define TARGET_OS_IOS TARGET_OS_IPHONE
-#endif
+#import "YTPlayerView.h"
 
-#ifndef TARGET_OS_WATCH
-  #define TARGET_OS_WATCH 0
-#endif
+FOUNDATION_EXPORT double youtube_ios_player_helperVersionNumber;
+FOUNDATION_EXPORT const unsigned char youtube_ios_player_helperVersionString[];
+

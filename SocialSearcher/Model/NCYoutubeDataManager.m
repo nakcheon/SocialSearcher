@@ -8,8 +8,8 @@
 
 #import "NCYoutubeDataManager.h"
 #import "RequestDefine.h"
-#import <AFNetworking/AFHTTPRequestOperation.h>
-#import <NSTimeZone-CountryCode/NSTimeZone+CountryCode.h>
+#import <AFNetworking/AFNetworking.h>
+#import <NSTimeZone_CountryCode/NSTimeZone-CountryCode-umbrella.h>
 #import "NCYoutubeDataContainer.h"
 
 #pragma mark - Definition

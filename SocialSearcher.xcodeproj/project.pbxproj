@@ -13,6 +13,10 @@
 		1B022DAF1BE34771004979ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DAE1BE34771004979ED /* Assets.xcassets */; };
 		1B022DB21BE34771004979ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B022DB01BE34771004979ED /* LaunchScreen.storyboard */; };
 		1B022DD81BE34BF6004979ED /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
+		1B0510CB1F628C59009B32AD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0510C81F628C59009B32AD /* AFNetworking.framework */; };
+		1B0510CC1F628C59009B32AD /* NSTimeZone_CountryCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0510C91F628C59009B32AD /* NSTimeZone_CountryCode.framework */; };
+		1B0510CD1F628C59009B32AD /* youtube_ios_player_helper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0510CA1F628C59009B32AD /* youtube_ios_player_helper.framework */; };
+		1B0510D51F628F20009B32AD /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B0510D41F628F20009B32AD /* YTPlayerView-iframe-player.html */; };
 		1B657A191BE3C1B400758205 /* NCYoutubeDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A181BE3C1B400758205 /* NCYoutubeDataContainer.m */; };
 		1B657A1B1BE453B700758205 /* NCYoutubeDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A1A1BE453B700758205 /* NCYoutubeDataManagerTests.m */; };
 		1B657A1C1BE453DF00758205 /* NCYoutubeDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */; };
@@ -44,7 +48,7 @@
 		1B657A861BE6060600758205 /* NCMainViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B657A851BE6060600758205 /* NCMainViewControllerTests.m */; };
 		1BA261AA1BE612D5004C3E35 /* NCSearchViewControlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA261A91BE612D5004C3E35 /* NCSearchViewControlerTests.m */; };
 		1BA261AC1BE617F2004C3E35 /* NCVideoListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA261AB1BE617F2004C3E35 /* NCVideoListViewControllerTests.m */; };
-		BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B1A55779C04BFC31903557 /* libPods.a */; };
+		994C8AB70B19F6E050599515 /* Pods_SocialSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912F6678A8423683B8569C7E /* Pods_SocialSearcher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		1B022DBE1BE34771004979ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B022DD61BE34BF6004979ED /* NCYoutubeDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCYoutubeDataManager.h; sourceTree = "<group>"; };
 		1B022DD71BE34BF6004979ED /* NCYoutubeDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCYoutubeDataManager.m; sourceTree = "<group>"; };
+		1B0510C81F628C59009B32AD /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/SocialSearcher-dkjjagbkddlnqxbhwfjukflmsgvl/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
+		1B0510C91F628C59009B32AD /* NSTimeZone_CountryCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NSTimeZone_CountryCode.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/SocialSearcher-dkjjagbkddlnqxbhwfjukflmsgvl/Build/Products/Debug-iphonesimulator/NSTimeZone-CountryCode/NSTimeZone_CountryCode.framework"; sourceTree = "<group>"; };
+		1B0510CA1F628C59009B32AD /* youtube_ios_player_helper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = youtube_ios_player_helper.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/SocialSearcher-dkjjagbkddlnqxbhwfjukflmsgvl/Build/Products/Debug-iphonesimulator/youtube-ios-player-helper/youtube_ios_player_helper.framework"; sourceTree = "<group>"; };
+		1B0510D41F628F20009B32AD /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
 		1B2260131BE3741700CBEBBD /* ProgrammingDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgrammingDefine.h; sourceTree = "<group>"; };
 		1B2260151BE3867E00CBEBBD /* Application-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Prefix.pch"; sourceTree = "<group>"; };
 		1B2260181BE3C0AD00CBEBBD /* RequestDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestDefine.h; sourceTree = "<group>"; };
@@ -115,9 +123,9 @@
 		1BA261A91BE612D5004C3E35 /* NCSearchViewControlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCSearchViewControlerTests.m; sourceTree = "<group>"; };
 		1BA261AB1BE617F2004C3E35 /* NCVideoListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCVideoListViewControllerTests.m; sourceTree = "<group>"; };
 		1BA261AE1BE6302D004C3E35 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; name = ReadMe; path = Documents/ReadMe; sourceTree = "<group>"; };
-		22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		47B1A55779C04BFC31903557 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		912F6678A8423683B8569C7E /* Pods_SocialSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAC9C3E5C817E5F0AE26FD5 /* Pods-SocialSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSearcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialSearcher/Pods-SocialSearcher.release.xcconfig"; sourceTree = "<group>"; };
+		F4DF2070EA5A4B9EE9130B5E /* Pods-SocialSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialSearcher/Pods-SocialSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +133,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEDA88C4B40755DC932E1ED0 /* libPods.a in Frameworks */,
+				1B0510CB1F628C59009B32AD /* AFNetworking.framework in Frameworks */,
+				1B0510CC1F628C59009B32AD /* NSTimeZone_CountryCode.framework in Frameworks */,
+				1B0510CD1F628C59009B32AD /* youtube_ios_player_helper.framework in Frameworks */,
+				994C8AB70B19F6E050599515 /* Pods_SocialSearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +157,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04914846D2871518EF2E307A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B0510C81F628C59009B32AD /* AFNetworking.framework */,
+				1B0510C91F628C59009B32AD /* NSTimeZone_CountryCode.framework */,
+				1B0510CA1F628C59009B32AD /* youtube_ios_player_helper.framework */,
+				912F6678A8423683B8569C7E /* Pods_SocialSearcher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1B022D961BE34771004979ED = {
 			isa = PBXGroup;
 			children = (
@@ -155,8 +177,8 @@
 				1B022DBB1BE34771004979ED /* SocialSearcherTests */,
 				1B657A7C1BE605E800758205 /* SocialSearcherUITests */,
 				1B022DA01BE34771004979ED /* Products */,
-				4AAAAD64430E0570F69E9A6D /* Pods */,
-				9D443D561F42CD93AE3C1F43 /* Frameworks */,
+				E85D66F799B4979043114C65 /* Pods */,
+				04914846D2871518EF2E307A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +213,7 @@
 		1B022DA21BE34771004979ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B0510D41F628F20009B32AD /* YTPlayerView-iframe-player.html */,
 				1B2260151BE3867E00CBEBBD /* Application-Prefix.pch */,
 				1B022DA31BE34771004979ED /* main.m */,
 			);
@@ -332,21 +355,13 @@
 			path = Documents;
 			sourceTree = SOURCE_ROOT;
 		};
-		4AAAAD64430E0570F69E9A6D /* Pods */ = {
+		E85D66F799B4979043114C65 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */,
-				22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */,
+				F4DF2070EA5A4B9EE9130B5E /* Pods-SocialSearcher.debug.xcconfig */,
+				ADAC9C3E5C817E5F0AE26FD5 /* Pods-SocialSearcher.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		9D443D561F42CD93AE3C1F43 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				47B1A55779C04BFC31903557 /* libPods.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,12 +371,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B022DCC1BE34771004979ED /* Build configuration list for PBXNativeTarget "SocialSearcher" */;
 			buildPhases = (
-				B6213DDF5F04619ACF4221AB /* Check Pods Manifest.lock */,
+				91861EB11918F5041AE45130 /* [CP] Check Pods Manifest.lock */,
 				1B022D9B1BE34771004979ED /* Sources */,
 				1B022D9C1BE34771004979ED /* Frameworks */,
 				1B022D9D1BE34771004979ED /* Resources */,
-				258C0D6370669925C07D7351 /* Embed Pods Frameworks */,
-				B7A082FA6E05E63E79E45C30 /* Copy Pods Resources */,
+				D3D23B7525616306941677E0 /* [CP] Embed Pods Frameworks */,
+				80769D03CC07C913F60353DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,7 +434,8 @@
 				TargetAttributes = {
 					1B022D9E1BE34771004979ED = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = S3GZM6J4J4;
+						DevelopmentTeam = PUF22HK4ND;
+						ProvisioningStyle = Automatic;
 					};
 					1B022DB71BE34771004979ED = {
 						CreatedOnToolsVersion = 7.1;
@@ -460,6 +476,7 @@
 				1B657A561BE565D000758205 /* NCSearchResultCell.xib in Resources */,
 				1B022DAF1BE34771004979ED /* Assets.xcassets in Resources */,
 				1B022DAD1BE34771004979ED /* Main.storyboard in Resources */,
+				1B0510D51F628F20009B32AD /* YTPlayerView-iframe-player.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,49 +498,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		258C0D6370669925C07D7351 /* Embed Pods Frameworks */ = {
+		80769D03CC07C913F60353DB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialSearcher/Pods-SocialSearcher-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B6213DDF5F04619ACF4221AB /* Check Pods Manifest.lock */ = {
+		91861EB11918F5041AE45130 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialSearcher-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B7A082FA6E05E63E79E45C30 /* Copy Pods Resources */ = {
+		D3D23B7525616306941677E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialSearcher/Pods-SocialSearcher-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/NSTimeZone-CountryCode/NSTimeZone_CountryCode.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSTimeZone_CountryCode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialSearcher/Pods-SocialSearcher-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -701,35 +728,45 @@
 		};
 		1B022DCD1BE34771004979ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B88F4BF431D8C295EEF2F313 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = F4DF2070EA5A4B9EE9130B5E /* Pods-SocialSearcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PUF22HK4ND;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SocialSearcher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.9folders.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59dc5489-9bd1-4cf8-8a43-6b23009edaf6";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		1B022DCE1BE34771004979ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22C2FB6FEF53F6B593CBF7AC /* Pods.release.xcconfig */;
+			baseConfigurationReference = ADAC9C3E5C817E5F0AE26FD5 /* Pods-SocialSearcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PUF22HK4ND;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "SocialSearcher/Application-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SocialSearcher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ncjung.corp.SocialSearcher;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.9folders.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "59dc5489-9bd1-4cf8-8a43-6b23009edaf6";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

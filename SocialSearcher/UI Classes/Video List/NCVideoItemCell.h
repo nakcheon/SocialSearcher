@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NCYoutubeDataManager.h"
-#import <AFNetworking/AFHTTPRequestOperation.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface NCVideoItemCell : UITableViewCell
 @property (nonatomic, strong) NSDictionary* dicInfo;
