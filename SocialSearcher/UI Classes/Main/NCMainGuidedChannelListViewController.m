@@ -81,13 +81,14 @@
     // scroll direction
     {
         // portrait -> scroll vertical
-        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || (UIDeviceOrientationFaceUp == [UIDevice currentDevice].orientation)) {
             DLog(@"viewDidLayoutSubviews::PORTRAIT");
             if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
                 _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
             }
             else {
                 DLog(@"viewDidLayoutSubviews::DUPLICATE PORT");
+                _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
             }
         }
         // landscape -> scroll horizontal
@@ -98,6 +99,7 @@
             }
             else {
                 DLog(@"viewDidLayoutSubviews::DUPLICATE LAND");
+                _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
             }
         }
     }
@@ -223,7 +225,7 @@
     }
     
     // portait - calculate with width (16:9)
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || (UIDeviceOrientationFaceUp == [UIDevice currentDevice].orientation)) {
         float width = (self.view.bounds.size.width - totalMargin) / numberOfCells;
         float height = (width / 16 * 9) * 1.5;
         return CGSizeMake(width, height);
@@ -275,7 +277,7 @@
     // load more
     {
         // portait
-        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || (UIDeviceOrientationFaceUp == [UIDevice currentDevice].orientation)) {
             if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
                 DLog(@"contents size = %f", scrollView.contentSize.height);
                 if (!_bNextRequestSent && !_bAllListLoaded) {

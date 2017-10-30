@@ -114,7 +114,7 @@
     BOOL bNeedToRefresh = NO;
     {
         // portrait -> scroll vertical
-        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || (UIDeviceOrientationFaceUp == [UIDevice currentDevice].orientation)) {
             DLog(@"viewDidLayoutSubviews::PORTRAIT");
             if (UIDeviceOrientationIsLandscape(_deviceOrientation)) {
                 _deviceOrientation = [UIDevice currentDevice].orientation;
@@ -127,7 +127,7 @@
         // landscape -> scroll horizontal
         else {
             DLog(@"viewDidLayoutSubviews::LANDSCAPE");
-            if (UIDeviceOrientationIsPortrait(_deviceOrientation)) {
+            if (UIDeviceOrientationIsPortrait(_deviceOrientation) || (UIDeviceOrientationFaceUp == _deviceOrientation)) {
                 _deviceOrientation = [UIDevice currentDevice].orientation;
                 bNeedToRefresh = YES;
             }

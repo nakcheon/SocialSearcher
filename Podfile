@@ -5,6 +5,8 @@ target 'SocialSearcher' do
 
 	pod 'AFNetworking'
 	pod "youtube-ios-player-helper", "= 0.1.4"
-	pod 'NSTimeZone-CountryCode'
+    pod 'NSTimeZone-CountryCode'
+    pod 'Fabric'
+    pod 'Crashlytics'
 
 end
