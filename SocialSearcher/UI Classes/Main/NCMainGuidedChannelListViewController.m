@@ -78,31 +78,32 @@
 
 -(void)viewDidLayoutSubviews
 {
-    // scroll direction
-    {
-        // portrait -> scroll vertical
-        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || (UIDeviceOrientationFaceUp == [UIDevice currentDevice].orientation)) {
-            DLog(@"viewDidLayoutSubviews::PORTRAIT");
-            if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-                _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-            }
-            else {
-                DLog(@"viewDidLayoutSubviews::DUPLICATE PORT");
-                _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-            }
-        }
-        // landscape -> scroll horizontal
-        else {
-            DLog(@"viewDidLayoutSubviews::LANDSCAPE");
-            if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
-                _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-            }
-            else {
-                DLog(@"viewDidLayoutSubviews::DUPLICATE LAND");
-                _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-            }
-        }
-    }
+    _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    //// scroll direction
+    //{
+    //    // portrait -> scroll vertical
+    //    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || (UIDeviceOrientationFaceUp == [UIDevice currentDevice].orientation)) {
+    //        DLog(@"viewDidLayoutSubviews::PORTRAIT");
+    //        if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+    //            _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    //        }
+    //        else {
+    //            DLog(@"viewDidLayoutSubviews::DUPLICATE PORT");
+    //            _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    //        }
+    //    }
+    //    // landscape -> scroll horizontal
+    //    else {
+    //        DLog(@"viewDidLayoutSubviews::LANDSCAPE");
+    //        if (_collectionChannelListLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
+    //            _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    //        }
+    //        else {
+    //            DLog(@"viewDidLayoutSubviews::DUPLICATE LAND");
+    //            _collectionChannelListLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    //        }
+    //    }
+    //}
     
     // refresh
     {
